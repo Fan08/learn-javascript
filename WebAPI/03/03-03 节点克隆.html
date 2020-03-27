@@ -8,9 +8,19 @@
 </head>
 
 <body>
-
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
     <script>
-        
+        const ul = document.querySelector('ul');
+        // 1  node.cloneNode()
+        //    括号内无内容时是浅拷贝
+        //    浅拷贝只克隆节点本身，不克隆里面的子节点和里面内容
+        //    当括号内为true时，为深拷贝
+        const new_ul = ul.children[0].cloneNode(true);
+        ul.appendChild(new_ul);
     </script>
 </body>
 </html>

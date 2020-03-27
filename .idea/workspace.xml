@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19622509-09c4-4e0f-9cd7-fd97cd5ff1cd" name="Default Changelist" comment="" />
+    <list default="true" id="19622509-09c4-4e0f-9cd7-fd97cd5ff1cd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-04 动态表格生成.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-10 三种创建元素的区别.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/03/03-03 节点克隆.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/03/03-03 节点克隆.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,21 +22,28 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZThUKZbzEV4Z7YISNN405vCvWs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WebAPI/03" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\计算机基础\前端\js学习\WebAPI\01" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\计算机基础\前端\js学习\WebAPI\03" />
       <recent name="D:\计算机基础\前端\js学习\WebAPI\02" />
       <recent name="D:\计算机基础\前端\js学习\WebAPI" />
       <recent name="D:\计算机基础\前端\js学习" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\计算机基础\前端\js学习\WebAPI\01" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -63,10 +76,22 @@
       <workItem from="1585103055962" duration="3558000" />
       <workItem from="1585121379779" duration="9749000" />
       <workItem from="1585210805053" duration="10424000" />
+      <workItem from="1585309919972" duration="5288000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

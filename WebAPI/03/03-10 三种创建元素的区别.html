@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <button>点击</button>
+    <p>abc</p>
+    <div class="inner">
+    </div>
+    <div class="create">
+    </div>
+
+    <script>
+        // 三种创建元素方式的区别
+        // 1 document.write()
+        //   此方法会导致页面重绘
+        //   点击后整个html只有一个div标签
+        const btn = document.querySelector('button');
+        btn.onclick = function(){
+            document.write('<div>123</div>')
+        };
+
+        // 2 innerTML
+        //   使用拼接字符串更为耗时
+        const inner = document.querySelector('.inner');
+        for(let i = 0; i <= 100; i++){
+            inner.innerHTML += '<a href="#">百度</a>'
+        }
+
+        //    通过join来实现拼接比第三种方式更快
+        //    但代码结构稍复杂
+        const innerString = [];
+        for(let i = 0; i <= 100; i++){
+            innerString.push('<a href="#">百度</a>');
+        }
+        inner.innerHTML += innerString.join('');
+
+        // 3 document.createElement()
+        //   相对省时
+        const create = document.querySelector('.create');
+        for(let i = 0; i <= 100; i++){
+            const a = document.createElement('a');
+            create.appendChild(a);
+        }
+    </script>
+</body>
+</html>
