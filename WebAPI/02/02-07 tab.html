@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        {/* 标签 */}
+        .tab_list li{
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+            list-style-type:none;
+        }
+        {/* 类 */}
+        .tab_list .current{
+            background-color: #c81623;
+            color: #fff;
+        }
+        .item_info{
+            padding: 20px 0 0 20px;
+        }
+        .item{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block">
+                商品介绍模块
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价（50000）模块内容
+            </div>
+            <div class="item">
+                手机商品
+            </div>
+        </div>
+    </div>
+    <script>
+        // 1  模块上的选项卡，点击某一个，这个为红色，其它为白色
+        // 获取元素
+        const tab_list = document.querySelector('.tab_list');
+        const lis = tab_list.querySelectorAll('li');
+        const items = document.querySelectorAll('.item');
+        // for循环绑定点击事件
+        for (let i = 0; i < lis.length; i++){
+            // 给5个li设置索引
+            lis[i].setAttribute('index', i.toString());
+            lis[i].onclick = function () {
+                // 清除所有颜色
+                for (let x = 0; x < lis.length; x++){
+                    lis[x].className = '';
+                }
+                // 留下被点击项
+                this.className = 'current';
+                // 2  下半部分显示模块
+                // 在点击事件发生后，修改下半部分显示
+                // 给所有的头部li添加索引
+                const index = this.getAttribute('index');
+                // console.log(index);
+                for(let x = 0; x < items.length; x++){
+                    items[x].style.display = 'none';
+                }
+                items[parseInt(index)].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,p {
+            background-color: pink;
+            height: 30px;
+            color: white;
+            width: 300px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div >某个时间</div>
+    <p>
+        我是文字
+        <span>123</span>
+    </p>
+    <script>
+        const div = document.querySelector('div');
+        // innerText不识别html标签
+        // 非标准
+        div.innerText = '768468468';
+        // innerHTML识别html标签
+        // W3C便准
+        div.innerHTML = '<strong>11152</strong>52';
+        // 这两个属性是可读写的，可获取元素内部内容
+        const p = document.querySelector('p');
+        // 去除换行和空格
+        console.log(p.innerText);
+        // innerHTML会打印出标签
+        console.log(p.innerHTML);
+    </script>
+</body>
+
+</html>

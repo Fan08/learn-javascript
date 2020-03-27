@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,p {
+            background-color: pink;
+            height: 30px;
+            color: white;
+            width: 300px;
+            line-height: 30px;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="1">1</button>
+    <button id="2">2</button>
+    <img src="../39374b1ddf5ae9f3d5523f1b74255b80.jpg.source.jpg" alt="btn2" title="btn2">
+
+    <script>
+        // 修改元素属性
+        // 1 获取元素
+        const btn1 = document.getElementById('1');
+        const btn2 = document.getElementById('2');
+        const img = document.querySelector('img');
+
+        // 2 注册事件
+        btn1.onclick = function () {
+            img.src = '微信图片_20191119202328.jpg';
+            img.title = 'btn1';
+        };
+        btn2.onclick = function () {
+            img.src = '39374b1ddf5ae9f3d5523f1b74255b80.jpg.source.jpg';
+            img.title = 'btn2';
+        }
+
+    </script>
+</body>
+
+</html>

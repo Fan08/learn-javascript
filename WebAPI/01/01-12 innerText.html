@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,p {
+            background-color: pink;
+            height: 30px;
+            color: white;
+            width: 300px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示当前系统时间</button>
+    <div >某个时间</div>
+    <p>1234</p>
+    <script>
+        // 点击按钮时，div中的文字发生变化
+        const button = document.querySelector('button');
+        const div = document.querySelector('div');
+        // 注册事件
+        button.onclick = function () {
+            div.innerText = getDate();
+        };
+
+        function getDate() {
+            const  date = new Date();
+            const year = date.getFullYear();
+            const  month = date.getMonth() + 1;
+            const dates = date.getDate();
+            const arr = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+            const day = date.getDay();
+            return `${year}-${month}-${dates} ${arr[day]}`;
+        }
+
+        // 元素无事件操作
+        const p = document.querySelector('p');
+        p.innerText = getDate();
+    </script>
+</body>
+
+</html>

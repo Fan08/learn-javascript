@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span>我是span1</span>
+    <div>我是div</div>
+    <span>我是span2</span>
+
+    <script>
+        const div = document.querySelector('div');
+        // 获取兄弟元素节点（下一个节点）
+        console.log(div.nextElementSibling);
+        // 获取兄弟元素节点（上一个节点）
+        console.log(div.previousElementSibling);
+        // IE9以上才支持上面两个方法
+        // 对于nextSibling和previousSibling则获取包括元素节点和文字节点
+        // 且这两个方法兼容性好，文字节点的nodeType是3，元素节点的nodeType是1
+
+    </script>
+</body>
+</html>

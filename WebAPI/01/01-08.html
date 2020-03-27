@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">盒子</div>
+    <div class="box">盒子</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+<script>
+    const boxes = document.getElementsByClassName('box');
+    console.log(boxes);
+    // querySelector 返回指定选择器的第一个对象
+    // 加“.”便是类选择器
+    const second_boxes = document.querySelector('.box');
+    console.log(second_boxes);
+    // 加“#”便是id选择器
+    const nav = document.querySelector('#nav');
+    console.log(nav);
+    // 什么都不加是标签选择器
+    const lis = document.querySelector('li');
+    console.log(lis);
+
+    // querySelectorAll()返回指定选择器的所有对象
+    const all_boxes = document.querySelectorAll('.box');
+    console.log(all_boxes);
+</script>
+</body>
+
+</html>

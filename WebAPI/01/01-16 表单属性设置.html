@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,p {
+            background-color: pink;
+            height: 30px;
+            color: white;
+            width: 300px;
+            line-height: 30px;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <input type="text" value="输入内容"/>
+
+    <script>
+        const btn = document.querySelector('button');
+        const input = document.querySelector('input');
+        // 注册时间
+        btn.onclick = function () {
+            input.value = 'btn点击';
+            // 按钮点击后被禁用 disabled
+            // btn.disabled = true;
+            this.disabled = true;
+            // this指向的是函数的调用者
+            // input.value = 'btn禁用';
+        }
+    </script>
+</body>
+
+</html>

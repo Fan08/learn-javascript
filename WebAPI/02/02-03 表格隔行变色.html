@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            margin: 100px auto;
+            text-align: center;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        thead tr {
+            height: 30px;
+            background-color: skyblue;
+        }
+
+        tbody tr {
+            height: 30px;
+        }
+
+        tbody td {
+            border-bottom: 1px solid #d7d7d7;
+            font-size: 12px;
+            color: blue;
+        }
+
+        .bg {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <!-- input的checked属性确定选中状态 -->
+                    <input type="checkbox" id="j_cbAll"/>
+                </th>
+                <th>商品</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>农银金穗</td>
+                <td>1.089</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>农银金穗</td>
+                <td>1.023</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>农银金穗</td>
+                <td>1.023</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>农银金穗</td>
+                <td>1.056</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 全选和取消全选
+        // 获取元素
+        const j_cbAll = document.getElementById('j_cbAll'); // 全选按钮
+        // 下面所有的复选框
+        const j_tb = document.getElementById('j_tb').getElementsByTagName('input');
+        // 注册事件
+        j_cbAll.onclick = function () {
+            // this.checked 得到选择框的选中状态，true为选中
+            // console.log(this.checked);
+            for(let i = 0; i < j_tb.length; i++){
+                j_tb[i].checked = this.checked;
+            }
+        };
+
+        // 所有子复选框选中后，上面的全选也选中
+        // 需要给所有复选框绑定点击事件，每次点击子复选框时都循环查看状态
+        for (let i = 0; i < j_tb.length; i++){
+            j_tb[i].onclick = function () {
+                // flag 控制全选按钮是否选中
+                let flag = true;
+                // 每次点击都要循环检查四个子复选框是否被选中
+                for (let x = 0; x < j_tb.length; x++){
+                    if(!j_tb[x].checked){
+                        // console.log(j_tb[x].checked);
+                        flag = false;
+                        break;
+                    }
+                }
+                j_cbAll.checked = flag;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <ul class="baidu">
+        <li><img src="../微信图片_20191119202328.jpg" style="width: 40px"></li>
+        <li><img src="../微信图片_20191119202344.jpg" style="width: 40px"></li>
+        <li><img src="../微信图片_20191119202353.jpg" style="width: 40px"></li>
+    </ul>
+    <script>
+        // 1 获取元素
+        // 从百度ul中获取所有的图片标签
+        const imgs = document.querySelector('.baidu').querySelectorAll('img');
+        // console.log(imgs);
+        for(let i = 0; i < imgs.length; i++){
+            imgs[i].onclick = function(){
+                // this.src 获取img标签中的src
+                // console.log(this.src);
+                // 把这个路径 this.src 给body就可以了
+                document.body.style.backgroundImage =
+                    `url(${this.src})`;
+            }
+        }
+    </script>
+</body>
+</html>

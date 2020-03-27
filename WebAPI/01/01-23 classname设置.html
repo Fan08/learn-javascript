@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: pink;
+            height: 300px;
+            color: black;
+
+            width: 300px;
+            line-height: 30px;
+        }
+        .first{
+            margin-left: 10px;
+        }
+        .change {
+            background-color: purple;
+            height: 300px;
+            color: white;
+            width: 300px;
+            line-height: 30px;
+            margin-top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">文本</div>
+
+    <script>
+        const test = document.querySelector('div');
+        test.onclick = function () {
+            // 点击后类名改变
+            // this.className = 'change';
+            // 如需保留原有类，如下操作 （多类名选择器）
+            this.className = 'first change'
+        }
+    </script>
+</body>
+
+</html>

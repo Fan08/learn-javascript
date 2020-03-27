@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1243</li>
+    </ul>
+
+    <script>
+        // 1 创建元素节点
+        const li = document.createElement('li');
+        li.innerHTML = 'li';
+        // 2 添加节点：node.appendChild() 将新节点添加在父节点的子节点末尾
+        const ul = document.querySelector('ul');
+        ul.appendChild(li);
+        // 3 插入节点：node.insertBefore(child, 指定元素) 将新节点插入指定元素前面
+        const lili = document.createElement('li');
+        lili.innerHTML = 'lili';
+        ul.insertBefore(lili, ul.children[0]);
+        // 4 在页面中添加一个新的元素：1、创建元素 2、添加元素
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div getTime="20" data-index="2" data-index-index="232323"></div>
+    <script>
+        const div = document.querySelector('div');
+        console.log(div.getAttribute('getTime'));
+
+        // 1 h5自定义属性要以“data-”开头
+        //   element.setAttribute()   设置自定义属性
+        div.setAttribute('data-index2', '4');
+
+        // 2 h5获取自定义属性，不需要前缀“data-”
+        //   IE11以上兼容
+        //   不能获取自定义属性以外的属性
+        console.log(div.dataset.index2);
+        console.log(div.dataset['index2']);
+        //   获取data-index-index属性，驼峰命名
+        console.log(div.dataset.indexIndex);
+
+    </script>
+</body>
+</html>

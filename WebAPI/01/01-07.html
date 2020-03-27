@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>123456</li>
+        <li>123456</li>
+        <li>123456</li>
+        <li>123456</li>
+        <li>123456</li>
+    </ul>
+    <ul id="element">
+        <li>element</li>
+        <li>element</li>
+        <li>element</li>
+        <li>element</li>
+        <li>element</li>
+    </ul>
+    <script>
+        const lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[0]);
+        const unit = document.getElementById('element');
+        const second_lis = unit.getElementsByTagName('li');
+        console.log(second_lis[0]);
+    </script>
+</body>
+
+</html>

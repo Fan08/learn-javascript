@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ul>
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">x</span>
+        </div>
+    </div>
+    <script>
+        // 可以利用父兄关系获取元素
+        // 逻辑性强，兼容性稍差
+        const erweima = document.querySelector('.erweima');
+        // 1 获取erweima的父节点
+        console.log(erweima.parentNode);
+
+        // 2 获取子节点（不提倡使用）
+        const  ul = document.querySelector('ul');
+        console.log(ul.childNodes);
+        //   非元素（文本）节点的type是3
+        console.log(ul.childNodes[0].nodeType);
+        //   元素节点的type是1
+        console.log(ul.childNodes[1].nodeType);
+
+        // 3 parentNode.children，获取子元素节点
+        console.log(ul.children);
+
+        // 4 parentNode.firstChild 获取第一个子节点，无论是不是元素节点
+        console.log(ul.firstChild);
+        console.log(ul.lastChild);
+
+        // 5 parentNode.firstElementChild 获取第一个子元素节点
+        console.log(ul.firstElementChild);
+        //   parentNode.lastElementChild 获取最后一个子元素节点
+        //   IE9以上支持
+        console.log(ul.lastElementChild);
+
+        // 6 实际开发中的实现
+        console.log(ul.children[0]);
+        console.log(ul.children[ul.children.length - 1]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,p {
+            background-color: pink;
+            height: 30px;
+            color: white;
+            width: 300px;
+            line-height: 30px;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../微信图片_20191119202328.jpg" alt="上午" title="上午">
+    <div>上午</div>
+
+    <script>
+        const img = document.querySelector('img');
+        const div = document.querySelector('div');
+        // 得到当前时间
+        const date = new Date();
+        const h = date.getHours();
+        // 根据小时改变内容
+        if (h < 12){
+            img.src = '微信图片_20191119202328.jpg';
+            div.innerHTML = '上午';
+        } else if (h < 18){
+            img.src = '微信图片_20191119202344.jpg';
+            div.innerHTML = '下午';
+        }else {
+            img.src = '微信图片_20191119202353.jpg';
+            div.innerHTML = '晚上';
+        }
+    </script>
+</body>
+
+</html>
