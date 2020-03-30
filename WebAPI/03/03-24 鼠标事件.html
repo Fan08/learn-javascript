@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    阻止默认事件发生
+    <script>
+        // 1 contextmenu，此处阻止的是默认右键页面菜单
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // 2 阻止内容选中
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        })
+    </script>
+</body>
+</html>

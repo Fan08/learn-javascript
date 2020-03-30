@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>121212</li>
+        <li>121212</li>
+        <li>121212</li>
+        <li>121212</li>
+    </ul>
+
+    <script>
+        // 原理：不再给每个子节点添加事件监听器，而是给父节点添加事件监听
+        //      然后利用冒泡原理影响设置每个子节点
+
+        const ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            alert('1111');
+            // 使用e.target来获取实际点击的对象
+            e.target.style.backgroundColor = 'pink';
+
+            // 注意this和e.target指向的对象是不同的
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // BOM是浏览器对象模型，它提供了对立与内容而与浏览器窗口进行交互的对象，其核心是window
+        // DOM是打开的一个页面，document
+        //      操作页面元素
+        //      W3C标准
+        // BOM是打开的整个浏览器，window
+        //      浏览器窗口交互的对象
+        //      各个浏览器不同，兼容性差
+        //      window中包含document
+
+        // window中包含
+        //      document
+        //      location
+        //      navigation
+        //      screen
+        //      history
+
+        // window是浏览器的顶级对象，具有双重角色
+        // 1 是js访问浏览器窗口的一个接口
+        // 2 是一个全局对象
+        let num = 10;
+        // console.log(num);
+        // num实际上是全局对象
+        console.log(window.num);
+
+        function fn() {
+            console.log(11);
+        }
+        // 也可以如下调用
+        window.fn();
+
+        // alert()也是BOM对象
+        // 因此也可以window.alert()
+    </script>
+</body>
+</html>

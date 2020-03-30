@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>IE9监听注册事件</button>
+    <button>兼容性解决</button>
+
+    <script>
+        // 1.1 注册事件概述
+        //     方法1 事件源.事件类型 = 事件处理程序
+        //           只能设置一个处理函数
+        const btns = document.querySelectorAll('button');
+        btns[0].onclick = function () {
+            alert('hi');
+        };
+        // 覆盖了之前的事件
+        btns[0].onclick = function () {
+            alert('hi, 12');
+        };
+
+        //     方法2 方法监听注册事件方式
+        //           IE9之前不兼容addEventListener()；
+        //           可以使用attachEvent()，非标，不可在生产环境中使用；
+        //           IE9之后不兼容
+        //           同一个元素同一个事件可以注册多个监听器；
+        //           eventTarget.addEventListener(type, listener[, useCapture])：
+        //              type：事件类型，click、mouseover（无“on”），
+        //              listener：事件处理函数，
+        //              useCapture：可选参数
+        btns[1].addEventListener('click', function () {
+            alert('hi, 22');
+        }, false);
+        // 不会覆盖之前的事件，而是生成了两个点击事件
+        btns[1].addEventListener('click', function () {
+            alert('hi, 32');
+        }, false);
+
+        //            attachEvent() IE9之前的版本支持，之后的不支持
+        btns[2].attachEvent('onclick', function () {
+            alert('hi, 42');
+        });
+
+        //     方法3 注册事件兼容性解决方案
+        const addEventListener = function addEventListener(element, eventName, fn) {
+            // 判断当前浏览器是否支持addEventListener方法；
+            if(element.addEventListener){
+                alert(eventName);
+                element.addEventListener(eventName, fn);
+            } else if (element.attachEvent){
+                element.attachEvent('on' + eventName, fn);
+            } else {
+                // 相当于element.onclick = fn；
+                element['on' + eventName] = fn;
+            }
+        };
+
+        const func = function () {
+            alert('兼容性');
+        };
+        addEventListener(btns[3], 'click', func);
+
+    </script>
+</body>
+</html>

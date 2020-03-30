@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 1 window.onload（窗口加载事件）：
+        //      在页面完全加载完成后，才执行该函数
+        //      在页面完全加载完成后，才执行该函数
+        //      在页面完全加载完成后，才执行该函数
+        //      从而使得js函数能写在DOM之前
+        //      但是只能注册一次
+        window.onload = function () {
+            const btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('btn');
+            })
+        };
+
+        //      使用以下方法能对一事件新增不同函数
+        window.addEventListener('load', function () {
+            const btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('btn2');
+            })
+        });
+        window.addEventListener('load', function () {
+                alert('load');
+        });
+
+        // 2 DOMContentLoaded（窗口加载事件）：
+        //      仅当DOM加载完成时触发；
+        //      不包括样式表、图片、flash等；
+        //      IE9以上才支持；
+        //      在图片极多时，不影响交互；
+        document.addEventListener('DOMContentLoaded', function () {
+            alert('DOMContentLoaded');
+        })
+
+        // load：页面内容全部加载完毕后执行，包含页面dom元素、图片、flash、css等；
+        // DOMContentLoaded：DOM加载完毕后即执行，不包含页面dom元素、图片、flash、css等；
+        //                   不影响交互；
+    </script>
+
+    <button>点击</button>
+</body>
+</html>

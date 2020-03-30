@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //  1 window.setTimeout(调用函数, [延迟的毫秒数])
+        //      setTimeout用于设置一个定时器，该定时器在定时器到期后执行调用函数
+        //      window可以省略
+        //      延迟事件如省略，默认是零
+        //      可以直接写函数，也可以写函数名
+        //      调用函数也被称为回调函数callback
+        //      addEventListener中的函数也被称为回调函数
+        const timer1 = setTimeout(function () {
+            console.log('倒计时1');
+        }, 2000);   // 两秒后调用前面的函数
+
+        function callback() {
+            console.log('倒计时2');
+        }
+        const timer2 = setTimeout(callback, 4000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 鼠标事件对象 MouseEvent
+        document.addEventListener('click', function (e) {
+            console.log(e);
+            console.log(e.clientX);
+            console.log(e.clientY);
+            console.log(e.pageX);
+            console.log(e.pageY);
+        })
+
+        // e.clientX 相对于浏览器可视区的X坐标
+        // e.clientY 相对于浏览器可视区的Y坐标
+        // e.pageX 相对于文档页面的X坐标
+        // e.pageY 相对于文档页面的Y坐标
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 1 keyup      按键弹起后触发
+        // 2 keydown    按键按下时触发
+        // 3 keypress   按键按下时触发，press不识别功能键，如ctrl键
+        // 4 三个事件的执行顺序是 keydown=> keypress => keyup
+
+        //      keyup事件
+        document.onkeyup = function(){
+            console.log('按键弹起');
+        };
+        document.addEventListener('keyup', function () {
+            console.log('事件监听器弹起');
+        });
+
+        //      keydown事件
+        document.addEventListener('keydown', function(){
+            // 如不松开，保持不断触发
+            console.log('事件监听器按下');
+        });
+
+        //      keypress事件
+        document.addEventListener('keypress', function(){
+            // 如不松开，保持不断触发
+            // press不识别功能键，如ctrl键
+            console.log('事件监听器press');
+        })
+    </script>
+</body>
+</html>

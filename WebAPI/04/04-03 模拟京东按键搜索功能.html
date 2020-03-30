@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <label>
+        <input type="search"/>
+    </label>
+    <script>
+        // 1 用户在页面中点击s键后，搜索框光标跳动；
+        // 2 使用键盘事件对象中的keyCode判断用户是否按下s键；
+        // 3 搜索框获得焦点则使用focus()方法；
+
+        const search = document.querySelector('input');
+        // 使用press的话有可能导致因按键没有及时松开而在输入框中输入多余数字
+        document.addEventListener('keyup', function (e) {
+            if(e.keyCode === 83){
+                // 将光标的焦点放到input框中
+                search.focus();
+            }
+        })
+    </script>
+</body>
+</html>

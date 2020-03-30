@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button class="begin">开启定时器</button>
+    <button class="stop">清除定时器</button>
+    <script>
+        // clearInterval：清除setInterval定时器
+        const  begin = document.querySelector('.begin');
+        const  stop = document.querySelector('.stop');
+        let timer = null;
+        begin.addEventListener('click', function () {
+            timer = setInterval(function(){
+                console.log('开启定时器');
+            }, 2000)
+        });
+        stop.addEventListener('click', function () {
+            clearInterval(timer);
+            console.log('清除定时器');
+        })
+    </script>
+</body>
+</html>

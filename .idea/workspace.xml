@@ -2,11 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19622509-09c4-4e0f-9cd7-fd97cd5ff1cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-04 动态表格生成.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-10 三种创建元素的区别.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-12 DOM重点核心.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-13 事件高级.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-16 删除事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-17 DOM事件流.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-19 事件对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-20 常见事件对象和方法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-21 事件对象阻止默认行为.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-22 阻止冒泡标准.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-23 事件委托.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-24 鼠标事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-25 鼠标事件对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/03/03-26 跟随鼠标.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-01 常用键盘事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-02 键盘事件对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-03 模拟京东按键搜索功能.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-04 输入框内容放大显示.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-07 BOM概述.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-09 调整窗口大小.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-10 定时器-setTimeout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-11 广告自动关闭.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-12 清除setTimeout定时器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-13 定时器-setInterval.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-14 京东倒计时案例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-15 清除setInterval定时器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-16 发送短信.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/04/04-17 this指向问题.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/03/03-03 节点克隆.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/03/03-03 节点克隆.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +65,7 @@
       <recent name="D:\计算机基础\前端\js学习" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\计算机基础\前端\js学习\WebAPI\04" />
       <recent name="D:\计算机基础\前端\js学习\WebAPI\01" />
     </key>
   </component>
@@ -77,6 +100,9 @@
       <workItem from="1585121379779" duration="9749000" />
       <workItem from="1585210805053" duration="10424000" />
       <workItem from="1585309919972" duration="5288000" />
+      <workItem from="1585376510365" duration="12316000" />
+      <workItem from="1585461149015" duration="8872000" />
+      <workItem from="1585548290911" duration="8782000" />
     </task>
     <servers />
   </component>
@@ -88,7 +114,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

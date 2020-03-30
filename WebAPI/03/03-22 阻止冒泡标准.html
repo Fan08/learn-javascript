@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father{
+            margin-top: 30px;
+            height: 225px;
+            width: 300px;
+            background-color: pink;
+            padding-top: 75px;
+        }
+        .son{
+            margin-left: 75px;
+            height: 150px;
+            width: 150px;
+            background-color: purple;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div class="father">
+    <div class="son">son盒子</div>
+</div>
+
+<script>
+    // 常见事件对象的属性和方法
+    // 阻止冒泡 dom推荐的标准 stopPropagation()
+
+    const son = document.querySelector('.son');
+    son.addEventListener('click', function (e) {
+        alert('son');
+
+        // 阻止father和document的点击事件发生
+        e.stopPropagation();
+        // 在IE6、7、8中使用cancelBubble
+        // 同时低版本IE不支持直接使用event
+        window.event.cancelBubble = true
+    });
+
+    const father = document.querySelector('.father');
+    father.addEventListener('click', function () {
+        alert('father');
+    });
+
+    document.addEventListener('click', function () {
+        alert('document');
+    });
+</script>
+</body>
+</html>

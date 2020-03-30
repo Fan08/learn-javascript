@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+
+    <script>
+        //  事件对象
+        const div = document.querySelector('div');
+        div.onclick = function (event) {
+            console.log(event);
+        };
+
+        div.addEventListener('click', function (event) {
+            console.log(event);
+        });
+
+        // 1 event指的就是事件对象；
+        // 2 事件对象只有有了事件才会存在，它是系统给我们自动创建的，不需要我们传参；
+        // 3 “事件对象”是我们事件的一系列相关数据的集合，与实践相关的数据；
+        //   如鼠标事件中的鼠标坐标，键盘事件中键盘点击键；
+        // 4 这个事件对象可以自己命名；
+        // 5 事件对象也有兼容性问题
+    </script>
+
+</body>
+</html>

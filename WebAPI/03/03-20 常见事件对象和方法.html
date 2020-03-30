@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>123</div>
+    <ul>
+        <li>ab1</li>
+        <li>ab2</li>
+        <li>ab3</li>
+    </ul>
+    <script>
+        // 常见事件对象的属性和方法
+        // 1 e.target 返回的是触发事件的对象（元素）
+        //   在IE 6、7、8中用e.srcElement
+        //   this返回的是绑定事件的对象（元素）
+        const div = document.querySelector('div');
+        div.addEventListener('click', function (e) {
+            // 下面两个打印的内容是相同的
+            console.log(e.target);
+            console.log(this);
+        });
+
+        const ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            // 给ul绑定了事件 那么this就指向ul
+            console.log(this);
+            // 由于是通过点击li触发事件的，所以e.target指向li
+            // 指向点击对象
+            console.log(e.target);
+        });
+
+        // 兼容性
+        div.onclick = function (e) {
+            e = e || window.event;
+            const  target = e.target || e.srcElement;
+            console.log(target);
+        }
+
+        // 2 了解即可：currentTarget和this较为相似
+        //   IE 6、7、8不兼容，因此一般不使用
+
+    </script>
+</body>
+</html>

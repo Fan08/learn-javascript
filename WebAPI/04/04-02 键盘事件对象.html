@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 1 keydown和keyup的事件不区分字母大小写
+        //   a和A的值都是65
+        // 2 keypress则可以区分大小写
+        //   a是97和A是65
+
+
+        // 键盘事件对象中的keyCode属性可以得到相应键的ASCII码
+        document.addEventListener('keyup', function (e) {
+            console.log(e.keyCode);
+            // ASCII来判断是哪个键
+            if(e.keyCode === 65){
+                alert('按下了a键');
+            }
+        });
+
+        document.addEventListener('keypress', function(e){
+            // 大写和keyup中的值是相同的
+            // 小写则和keyup中不同
+            console.log(e.keyCode);
+        });
+    </script>
+</body>
+</html>

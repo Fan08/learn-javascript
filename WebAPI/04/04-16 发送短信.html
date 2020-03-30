@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    手机号码：<input type="number">
+    <button>发送</button>
+
+    <script>
+        const btn = document.querySelector('button');
+        let time = 10;
+        btn.addEventListener('click', function(){
+            btn.disabled = true;
+            const timer = setInterval(function(){
+                if(time === 0){
+                    // 清除定时器、复原按钮
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    time = 10;          // 重新开始计时
+                } else {
+                    btn.innerHTML = '还余' + time + '秒';
+                    time--;
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+</html>
