@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-07 13:02:53
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-07 13:13:30
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            const targetObj = {
+                id: 0,
+                msg: {
+                    sex: "男",
+                }
+            };
+            const obj = {
+                id: 1,
+                name: "andy",
+                msg: {
+                    age: 18,
+                }
+            }
+            $.extend(true, targetObj, obj);
+            console.log(targetObj);
+            // $.extend(targetObj, obj);
+            console.log(obj);
+
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

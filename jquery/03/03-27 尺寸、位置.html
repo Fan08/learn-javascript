@@ -1,0 +1,72 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-08 10:32:14
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-08 10:48:08
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            background-color: pink;
+            border: 2px solid skyblue;
+        }
+
+        .father {
+            position: relative;
+            margin-top: 100px;
+            margin-left: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .son {
+            height: 100px;
+            width: 100px;
+            background-color: springgreen;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <!-- <div class="div"></div> -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+        $(function () {
+            // console.log($("div").width());
+            // $("div").width(300);
+            // console.log($("div").innerWidth());
+            // console.log($("div").outerHeight());
+
+            console.log($(".son").offset());
+            $(".son").offset({
+                left: 200,
+                top: 200,
+            })
+            console.log($(".son").position());
+
+        })
+    </script>
+</body>
+
+</html>

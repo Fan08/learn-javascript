@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-03 13:17:50
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-03 13:41:52
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider{
+            position: relative;
+            margin-left: 90%;
+            color: white;
+            width: 40px;
+        }
+        span{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: purple;
+        }
+        .con{
+            position: absolute;
+            display: none;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 40px;
+            background-color: purple;
+            z-index: -1;
+        }
+    </style>
+    <script src="js/animate.js"></script>
+</head>
+<body>
+    <div class="slider">
+        <span>←</span>
+        <div class="con">问题反馈</div>
+    </div>
+
+    <script>
+        const sliderbar = document.querySelector('.slider');
+        const con = document.querySelector('.con');
+        // 鼠标经过slider，就会让con滑动到左侧
+        // 鼠标离开slider，就会让con滑动到右侧
+        sliderbar.addEventListener('mouseenter', function(){
+            con.style.display = 'block';
+            animate(con, -160, function(){
+                // 动画执行完后，“←”变“→”；
+                sliderbar.children[0].innerHTML = '→';
+            });
+        })
+        sliderbar.addEventListener('mouseleave', function(){
+            animate(con, 0, function(){
+                // 动画执行完后，“←”变“→”；
+                sliderbar.children[0].innerHTML = '←';
+                con.style.display = 'none';
+            });
+        })
+    </script>
+</body>
+</html>

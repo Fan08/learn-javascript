@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-06 10:46:53
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-06 10:55:09
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            float: left;
+            width: 200px;
+            list-style: none;
+        }
+
+        img {
+            width: 200px;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('li').hover(function () {
+                $(this).siblings().stop().fadeTo(500, 0.5);
+            }, function () {
+                $(this).siblings().stop().fadeTo(500, 1);
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#"><img src="潘娇娇_三亚_3100.JPG" alt=""></a></li>
+        <li><a href="#"><img src="潘娇娇_三亚_3103.JPG" alt=""></a></li>
+        <li><a href="#"><img src="潘娇娇_三亚_320.JPG" alt=""></a></li>
+        <li><a href="#"><img src="潘娇娇_三亚_338.JPG" alt=""></a></li>
+        <li><a href="#"><img src="潘娇娇_三亚_342.JPG" alt=""></a></li>
+    </ul>
+</body>
+
+</html>

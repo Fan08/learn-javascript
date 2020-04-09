@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-04 11:00:07
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-04 11:06:25
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <input type="checkbox" id="remember">记住用户名
+
+    <script>
+        const username = document.querySelector('#username');
+        const remember = document.querySelector('#remember');
+        if (localStorage.getItem('uname')) {
+            username.value = localStorage.getItem('uname');
+            remember.checked = true;
+        }
+        remember.addEventListener('change', function () {
+            if (this.checked) {
+                localStorage.setItem('uname', username.value);
+            } else {
+                localStorage.removeItem('uname');
+            }
+        })
+    </script>
+</body>
+
+</html>

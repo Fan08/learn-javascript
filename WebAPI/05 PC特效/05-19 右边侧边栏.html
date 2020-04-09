@@ -1,0 +1,89 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-02 11:32:07
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-02 12:53:23
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider-bar{
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+        .w{
+            width: 1200px;
+            margin: 10px auto;
+        }
+
+        .header{
+            height: 150px;
+            background-color: purple;
+        }
+
+        .banner{
+            height: 250px;
+            background-color: skyblue;
+        }
+
+        .main{
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+
+        span{
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner</div>
+    <div class="main w">主体部分</div>
+    <script>
+        const sliderbar = document.querySelector('.slider-bar');
+        const banner = document.querySelector('.banner');
+        // 被卷去头部的大小
+        const bannerTop = banner.offsetTop;
+        // 计算右侧固定栏滚动时的绝对定位
+        const sliderbarTop = sliderbar.offsetTop - bannerTop;
+        const main = document.querySelector('.main');
+        const goBack = document.querySelector('.goBack');
+        const mainTop = main.offsetTop ;
+        // 页面滚动事件
+        document.addEventListener('scroll', function(){
+            if(window.pageYOffset >= bannerTop){
+                sliderbar.style.position = 'fixed';
+                sliderbar.style.top = sliderbarTop + 'px';
+            }else{
+                sliderbar.style.position = 'absolute';
+                sliderbar.style.top = 300 + 'px';
+            }
+
+            // 页面滚动到main使，显示返回顶部
+            if(window.pageYOffset >= mainTop){
+                goBack.style.display = 'block';
+            }else{
+                goBack.style.display = 'none';
+                // sliderbar.style.top = 300 + 'px';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="margin-left: 80px">
+        <h2>5 location对象</h2>
+        <p>在第二个页面中，通过使用前一个页面的URL中的参数来进行展示</p>
+        <p>即location.search</p>
+        <p>该属性返回的是一个对象，所以也被称为location对象</p>
+        <br/>
+        <br/>
+        <div id="div" style="background-color: pink; width: 200px"></div>
+    </div>
+
+
+    <script>
+        console.log(location.search); // ?uname=
+        // 1 去掉问号  substr('起始位置'，截取几个字符)；
+        // 获得uname=，问号被取消
+        const params = location.search.substr(1);
+        console.log(params);
+        // 2 利用split，根据问号进行分割，形成数组；
+        const arr = params.split('=');
+        console.log(arr);
+        const div = document.querySelector('#div');
+        div.innerHTML = '登陆页面获取的数据：' + arr[1];
+    </script>
+</body>
+</html>

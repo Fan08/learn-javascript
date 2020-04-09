@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-left: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left: 80px">
+        <h2>获取鼠标在盒子内的距离</h2>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;先获得鼠标在页面中的坐标(e.pageX, e.pageY)；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;获得盒子在页面中的距离(element.offsetLeft, element.offsetTop)；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;移动鼠标即获取最新坐标，使用鼠标移动事件（mousemove）；</p>
+    </div>
+
+    <div class="box" style="width: 200px;"></div>
+    <script>
+        const box = document.querySelector('.box');
+        box.addEventListener('mousemove', function (e) {
+            const left = this.offsetLeft;
+            const top = this.offsetTop;
+
+            const mouse_left = e.pageX;
+            const mouse_top = e.pageY;
+            // console.log('left, top', left, top);
+            // console.log('mouse_left, mouse_top', mouse_left, mouse_top);
+            const mouse_position_x = mouse_left - left;
+            const mouse_position_y = mouse_top - top;
+            console.log('mouse_position', mouse_position_x, mouse_position_y);
+        });
+    </script>
+</body>
+</html>

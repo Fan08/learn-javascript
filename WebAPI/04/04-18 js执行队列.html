@@ -5,6 +5,64 @@
     <title>Title</title>
 </head>
 <body>
+    <div style="margin-left: 80px">
+        <h2>4.1 js是单线程</h2>
+        <p>同一个时间只能做一件事；</p>
+        <p>只能对某个DOM元素进行操作，不能同时进行，应先进行添加，之后再删除</p>
+        <p>问题1&nbsp;&nbsp;可能会因为阻塞而不连贯</p>
+        <p>&nbsp;&nbsp;使用同步和异步机制来解决，H5开始允许js创建多个线程；</p>
+        <p>&nbsp;&nbsp;在setTimeout中，即使延时设为0，依然不会立刻执行；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;首先执行的是同步任务，然后执行异步任务；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;同步任务：都在主线程上执行，形成一个执行栈；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;异步任务：JS的异步是通过回调函数实现的；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            异步任务有三种类型</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            1 普通事件，如click、resize等；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            2 资源加载，如load、error等；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            3 定时器，包括setInterval、setTimeout等；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            异步任务相关回调函数添加到任务队列中（任务队列也称为消息队列）；</p>
 
+        <br/>
+        <h2>4.2 JS执行机制</h2>
+        <p>1 先执行栈中的同步任务；</p>
+        <p>2 异步任务（回调函数）放入任务队列中；</p>
+        <p>3 继续执行同步任务，全部完成后再将任务队列中的异步任务放入执行栈，开始执行；</p>
+
+        <br/>
+        <h2>4.3 事件和定时器同时存在</h2>
+        <p>1 异步进程只用再事件发生时，才会将回调函数放入任务队列中，不点击是不会放入的；</p>
+        <p>2 对于定时器，则是在时间到了以后将其放入任务队列；</p>
+        <p>3 同步任务完成后，才看任务队列中是否有任务，有则放入执行栈；</p>
+        <p>4 事件循环（event loop）：</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;主线程不断地重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环；</p>
+    </div>
+        <script>
+            // 问题1
+            console.log(1);
+
+            // 同步任务中只有定时器
+            // 异步任务的任务队列中放置了相关的执行函数
+            setTimeout(function () {
+                console.log('setTimeout')
+            }, 2000);
+
+            console.log(2);
+
+            // 事件和定时器组成的两个异步
+            console.log(11);
+            document.onclick = function(){
+                console.log('click');
+            };
+
+            console.log(22);
+            setTimeout(function () {
+                console.log(33);
+            }, 3000)
+        </script>
 </body>
+
 </html>

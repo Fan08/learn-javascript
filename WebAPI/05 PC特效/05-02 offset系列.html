@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
+        .child{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin: 45px;
+            padding: 5px;
+            border: 12px solid #999999;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left: 80px">
+        <h2>1.1 offset概述</h2>
+        <p>offset：偏移量，可以动态得到该元素的位置（偏移）、大小等；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;offsetLeft、offsetTop：获取元素举例带有定位父元素的位置；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;offsetWidth、offsetHeight：获取元素自身的大小（宽度高度）；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;offsetParent：返回带定位的父亲，如没有一个父亲带定位，则返回body；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;parentNode：返回任意父亲，没有定位也会返回；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;注意：返回值都不带单位；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;padding和boder都会撑大盒子；</p>
+
+    </div>
+    <div class="father">
+        <div class="child"></div>
+    </div>
+
+    <script>
+        const father = document.querySelector('.father');
+        const child = document.querySelector('.child');
+        // 获取带有定位（position）的父元素，如父级都没有定位，则返回body
+        console.log('获取父元素', child.offsetParent);
+        console.log('获取父元素ParentNode', child.parentNode);
+        // 距离顶部的高度
+        console.log('高度位置', father.offsetTop);
+        // 左侧位置
+        console.log('左向位置', father.offsetLeft);
+        // 它以带有定位的父亲为准，如果没有父亲或父亲没有定位，则以body为准
+        // 当父元素的css中添加position属性后（relative和absolute皆可），获取的就是与父元素的相对位置
+        console.log('child左向位置', child.offsetLeft);
+
+        // 包含padding、border和width
+        console.log('元素宽度', child.offsetWidth);
+        console.log('元素高度', child.offsetHeight);
+    </script>
+</body>
+</html>

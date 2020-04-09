@@ -1,0 +1,66 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-05 11:38:55
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-05 11:50:32
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            display: inline;
+        }
+
+        #content {
+            border-left: 1px solid pink;
+            border-right: 1px solid pink;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        // 显示show()，隐藏hide()
+        // 利用$(this).index()来实现
+        $(function () {
+            // 1 鼠标经过li
+            $('#left li').mouseover(function () {
+                // 2 得到鼠标经过li的index
+                const index = $(this).index();
+                console.log(index);
+                // 3 根据索引号显示图片
+                $('#content div').eq(index).show();
+                // 4 其余图片隐藏
+                $('#content div').eq(index).siblings().hide();
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <ul id='left'>
+            <li><a href="#">图1</a></li>
+            <li><a href="#">图2</a></li>
+            <li><a href="#">图3</a></li>
+        </ul>
+        <div id="content">
+            <div>
+                <a href="#"><img src="../../微信图片_20191119202328.jpg" alt=""></a>
+            </div>
+            <div>
+                <a href="#"><img src="../../微信图片_20191119202344.jpg" alt=""></a>
+            </div>
+            <div>
+                <a href="#"><img src="../../微信图片_20191119202353.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

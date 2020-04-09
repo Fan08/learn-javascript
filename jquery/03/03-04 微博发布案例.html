@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-07 10:38:44
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-07 10:52:33
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            display: none;
+        }
+
+        a {
+            margin-left: 20px;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            // 1 动态发布li
+            $(".btn").on("click", function () {
+                const li = $("<li></li>");
+                li.html($(".txt").val() + "<a href='javascript:;'>删除</a>");
+                $("ul").prepend(li);
+                li.slideDown();
+                $(".txt").val("");
+            });
+
+            // 2 点击删除按钮，删除对应的li
+            $("ul").on("click", "li>a", function () {
+                $(this).parent().slideUp(500, function () {
+                    $(this).remove();
+                });
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box" id="weibo">
+        <span></span>
+        <textarea name="" class="txt" cols="30" rows="10"></textarea>
+        <button class="btn">发布</button>
+        <ul>
+
+        </ul>
+    </div>
+</body>
+
+</html>

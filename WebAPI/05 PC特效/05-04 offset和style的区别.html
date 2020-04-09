@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left: 80px">
+        <h2>1.2 offset和style的区别</h2>
+        <h3>offset：</h3>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;可以得到任意样式表中的样式值；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;获得的值没有单位；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;offsetWidth包含padding+border+width；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;offsetWidth等是只读属性；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;因此用offset获取元素大小位置更加合适；</p>
+        <br/>
+        <h3>style：</h3>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;style只能得到行样式表中的样式值（无法获取css文件中的值）；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;style.width获得的是带有单位的字符串；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;style.width的值不包含padding和border；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;style.width是可读写属性，可以获取也可以赋值；</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;所以想要给元素更改值，则需要用style；</p>
+    </div>
+
+    <div class="box" style="width: 200px;"></div>
+
+    <script>
+        const box = document.querySelector('.box');
+        console.log('style.width', box.style.width);
+        console.log('offsetWidth', box.offsetWidth);
+    </script>
+</body>
+</html>

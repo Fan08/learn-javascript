@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-02 10:12:44
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-02 11:03:14
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    12
+    <script>
+        window.addEventListener('load', function(){alert(11)});
+        
+        function fn(){
+            console.log(1);
+        }
+        fn();
+
+        // 写法
+        (function(a){
+            console.log('立即执行函数1');
+            console.log(a);
+        })(1, 2);
+
+        function setRemUnit(){
+            // 获取html根元素
+            const docE1 = document.documentElement;
+            const rem = docE1.clientWidth / 10;
+            docE1.style.fontSize = rem + 'px';
+        }
+        setRemUnit();
+
+        window.addEventListener('resize', setRemUnit);
+        window.addEventListener('pageshow', function(e){
+            // 为true时代表是存缓存获取的页面
+            if(e.persisted){
+                alert(11);
+                setRemUnit();
+            }
+        })
+    </script>
+</body>
+</html>

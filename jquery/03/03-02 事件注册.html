@@ -1,0 +1,97 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-07 10:03:01
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-07 12:42:46
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .current {
+            background-color: greenyellow;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>测试</li>
+        <li>测试</li>
+        <li>测试</li>
+        <li>测试</li>
+        <li>测试</li>
+    </ul>
+    <ol></ol>
+    <p>p标签</p>
+    <input type="text">
+    <script>
+        $(function () {
+            $('div').on({
+                mouseenter: function () {
+                    $(this).css("background", "skyblue")
+                },
+                click: function () {
+                    $(this).css("background", "purple")
+                },
+                mouseleave: function () {
+                    $(this).css("background", "blue")
+                }
+            });
+
+            // $("div").on("mouseenter mouseleave", function () {
+            //     $(this).toggleClass("current");
+            // })
+
+            // 绑定在ul上，触发的是ul的子元素li
+            $("ul").on("click", "li", function () {
+                $(this).css("color", "blue")
+            });
+
+            // 给动态创建的元素绑定事件
+            $("ol").on("click", "li", function () {
+                alert(11)
+            })
+            const li = $("<li>新元素</li>");
+            $("ol").append(li);
+
+            $("div").off("click");
+
+            $("ul").off("click", "li");
+
+            $("p").one("click", function () {
+                alert("p")
+            });
+
+            $("div").on("click", function () {
+                alert(11);
+            });
+
+            // $("div").click();
+            // $("div").trigger("click")
+            // $("div").triggerHandler("click")
+
+            $("input").on("focus", function () {
+                $(this).val("test1");
+            });
+            $("input").trigger("focus")
+            // $("input").triggerHandler("focus")
+        })
+    </script>
+</body>
+
+</html>

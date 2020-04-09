@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-04 10:24:44
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-04 10:57:01
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空数据</button>
+
+    <script>
+        // 获取07-22中的数据
+        console.log(localStorage.getItem('uname'))
+        const ipt = document.querySelector('input');
+        const set = document.querySelector('.set');
+        const get = document.querySelector('.get');
+        const remove = document.querySelector('.remove');
+        const del = document.querySelector('.del');
+        set.addEventListener('click', function () {
+            const val = ipt.value;
+            sessionStorage.setItem('uname', val);
+        });
+        get.addEventListener('click', function () {
+            const val = sessionStorage.getItem('uname');
+            console.log(val);
+        });
+        remove.addEventListener('click', function () {
+            sessionStorage.removeItem('uname');
+        });
+        del.addEventListener('click', function () {
+            sessionStorage.clear();
+        });
+    </script>
+
+</body>
+
+</html>

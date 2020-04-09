@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-02 13:02:34
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-02 13:25:52
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
+        .child{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="child"></div>
+    </div>
+
+    <script>
+        const father = document.querySelector('.father');
+        const child = document.querySelector('.child');
+        // father.addEventListener('mouseover', function(){
+        //     // 经过自身和子盒子都会触发
+        //     console.log('father, mouseover')
+        // });
+        father.addEventListener('mouseenter', function(){
+            // 经过自身才会触发
+            // mouseenter不会冒泡
+            console.log('father, mouseenter')
+        })
+    </script>
+</body>
+</html>

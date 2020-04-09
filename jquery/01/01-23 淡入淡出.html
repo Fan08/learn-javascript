@@ -1,0 +1,56 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-06 10:07:27
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-06 10:59:45
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: none;
+            width: 150px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <button>淡入</button>
+    <button>淡出</button>
+    <button>切换</button>
+    <button>修改透明度</button>
+    <div></div>
+    <script>
+        $(function () {
+            $('button').eq(1).click(function () {
+                $('div').fadeOut(1000);
+            });
+
+            $('button').eq(0).click(function () {
+                $('div').fadeIn(1000)
+            })
+
+            $('button').eq(2).click(function () {
+                $('div').fadeToggle(1000);
+            })
+
+            $('button').eq(3).click(function () {
+                $('div').fadeTo(1000, 0.5);
+            })
+
+        })
+    </script>
+</body>
+
+</html>

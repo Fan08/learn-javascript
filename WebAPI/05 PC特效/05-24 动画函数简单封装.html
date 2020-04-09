@@ -1,0 +1,66 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-03 10:45:20
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-03 11:14:12
+ -->
+ <!DOCTYPE html>
+ <html lang="zh-CN">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+         div{
+             position: absolute;
+             left: 0;
+             width: 100px;
+             height: 100px;
+             background-color: pink;
+         }
+         span{
+             position: absolute;
+             display: block;
+             width: 150px;
+             height: 150px;
+             background-color: purple;
+         }
+     </style>
+ </head>
+ <body>
+    <button>触发动画</button>
+    <div></div>
+    <span></span>
+    <script>
+         // 简单封装动画函数
+         // obj是分装的目标对象，target是目标位置
+         // 给对象设置一个属性，属性值为定时器
+         function animate(obj, target){
+             // 先清除原有的定时器
+             clearInterval(obj.timer);
+            // 给不同的元素指定不同定时器
+            obj.timer = setInterval(function(){
+                if(obj.offsetLeft >= target){
+                    // 清除定时器
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 50);
+         }
+
+
+         const div = document.querySelector('div');
+         const span = document.querySelector('span');
+         const btn = document.querySelector('button');
+         animate(div, 200)
+         // 点击后才触发
+         // 因为开启过多定时器会导致元素移动速度增快
+         // 解决方法是让元素只绑定一个定时器
+         btn.addEventListener('click', function(){
+            animate(span, 100);
+         })
+   </script>
+ </body>
+ </html>

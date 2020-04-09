@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-06 13:59:00
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-06 14:16:05
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>原先的li</li>
+    </ul>
+    <div class="test">我是原先的div</div>
+
+    <script>
+        $(function () {
+            const li = $("<li>新的li</li>");
+            const div = $("<div>新的div</div>");
+            $("ul").append(li);
+            $("ul").prepend(li);
+            $(".test").after(div);
+            $(".test").remove();
+        })
+    </script>
+</body>
+
+</html>

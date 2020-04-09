@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  引入js文件  -->
+    <script src="js/detail.js"></script>
+    <style>
+        .preview_img{
+            position: relative;
+            width: 400px;
+        }
+        .little_img{
+            width: 400px;
+        }
+        .mask{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #FEDE4F;
+            opacity: .5;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+        .big{
+            display: none;
+            position: absolute;
+            left: 410px;
+            top: 0;
+            width: 600px;
+            height: 600px;
+            background-color: pink;
+            z-index: 999;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview_img">
+        <img src="../03/潘娇娇_三亚_354.jpg" alt="" class="little_img">
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="../03/潘娇娇_三亚_354.jpg" alt="" id="raw_img" style="position: absolute; left: 0; top: 0;">
+    </div>
+
+</body>
+</html>

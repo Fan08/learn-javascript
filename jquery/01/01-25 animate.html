@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-06 10:07:27
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-06 11:03:12
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 150px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <button>动起来</button>
+    <div></div>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                $('div').animate({
+                    left: 200,
+                    top: 100,
+                    opacity: 0.4
+                }, 1000);
+            });
+        })
+    </script>
+</body>
+
+</html>

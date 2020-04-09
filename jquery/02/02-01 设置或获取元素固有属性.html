@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-06 12:42:07
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-06 13:12:21
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" title="百度">111</a>
+    <input type="checkbox" name="" checked=false>
+    <div index="1">我是div</div>
+    <span></span>
+
+    <script>
+        $(function () {
+            // element.props("属性名") 获取属性值
+            console.log($("a").prop("href"));
+            $("a").prop("title", "新title");
+            // 获取复选框是否被选中
+            $("input").change(function () {
+                console.log($(this).prop("checked"));
+            });
+
+            console.log($("div").attr("index"));
+            $("div").attr("index", 4);
+
+            $("span").data("uname", "andy");
+            console.log($("span").data("uname"));
+
+        })
+    </script>
+</body>
+
+</html>

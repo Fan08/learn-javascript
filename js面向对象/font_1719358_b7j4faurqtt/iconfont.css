@@ -1,0 +1,29 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1586405824538'); /* IE9 */
+  src: url('iconfont.eot?t=1586405824538#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARMAAsAAAAACKwAAAP/AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqEZIQXATYCJAMQCwoABCAFhG0HSxuMB8iuMTaGVk9K0SaZ6QTaRkZgV12axz26+dgSD/+/37d97jsjoknMwCtpyGaJkJgI3ixTOkRC0tU9ZNY/Glezp5ecTGYaCW5gO/zfWvtzqgmfhrgmTbryZ9+wPjeHSTWLPCKJ0MlkSicBRfgzM1Q4NZrAYQMOmldchAcrgeHl/+eY6VI8v83mkh20N8DxgAYUFZrnB3YHcoJ+i+yOQC36OIFm4+ShC3Mr6xCTjHGBeMgNBWIphaxJD41CfcnSFK8hrLE8wRwCeOX/fvyDrqCmqKsYU6/cntVh4qf9GwUUtlwEMIfTgVtFhQUgibulhuuCYWABVrMSG7IFNJq6wlDauzeKUROytiJoNP/lEYqKqEcFrQS7Eaz4aW+TCX7ekSn8pChUGJ2jG9GMzwD+I+zox4uUra3D9AwtXYwSiq6Wi9OYq8u4s+uok8ffpdPVlfPNjev1dSYtOe2v6AXwd/uwyA1M8X7Z7bYvr5eW/ml//gCdExEzpL8iNBN4tyTB1LPCh828oY0h1zVcNTdXr644qqqAxefF9tTZGDSebkyfX6u+Plm4CfLFo41nhY+rXZzD3jkI0PJurvWeC3xcJH845p2uZiC/n7Z7GaHTFanKuGjzUhjyhngmgdLHfQXdEXrDxfV1c3n77baWKbt957LDLPmVJRzxXCJUQnM48Whr5UsnIwt/PsO86g/Ka9Wg8/7xpuud98kIwDULrTBGNJxzX+ttS2+rXrMtbqGPWqBDSKnjk/q3pg/WpJLvmaQSjr+sDhf8/MvyzP/XrczBarBkdpO1VghHS6q6RBaJppIlnqo353JkOmsNdPvlzkX1uk9adtJB7EXc+5yZ0SkLXz6zGiLgJBCyOvHCuKWl2HoF7SN5FVHbF70KtvAMkNWWmBYD8ABqoKsnAGrhF6QAtWnFPPwPf+PauNeIb3bkP0aX4Mfkn3x7TaAb86Uywcy3zwQ2pMo2lJkyx2ZoxvQoMU5Bs2a88wjd7oYQ9YF9hMYUk4OiwRhUGk0gE7sAdVpsQL1Gx9BsnunqFj0SBEU2YU4xgtBpBIp2H6HS6QiZ2Fuo0+8d6nUGFpqdRHHLFlMRnpgWqEjUaUA6DQ90HWapZSJIX0WjbCkiyfZxmyhK3E1V2jqy4Xl0UAwxIzHF6EpKYjQkwbWpCToNLculcQnuPmqyLSxJekNK7azsQW2BsTYknCcghYR0VIBjVDiNy8Hc1lIi9/OrkKHMohA1dRXKTUgo4Z1TKhQpA5DzAgdUdym9Ex0wdEkiMToqhOCyUSZYhywz4KLiygftQxqpTVgHn2eIEmkWAhW0TS+y73AbNDP6ZZSoIqNO07Hf05oUXJJpRZP8gMvjXcYtK2wIt+wBAAA=') format('woff2'),
+  url('iconfont.woff?t=1586405824538') format('woff'),
+  url('iconfont.ttf?t=1586405824538') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1586405824538#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon-test:before {
+  content: "\e651";
+}
+
+.icon-activity_fill:before {
+  content: "\e6de";
+}
+
+.icon-group:before {
+  content: "\e6ff";
+}
+

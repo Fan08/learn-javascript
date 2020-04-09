@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-05 11:32:41
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-05 11:36:15
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <script>
+        $(function () {
+            // 1 给所有获取的按钮都绑定点击事件
+            $('button').click(function () {
+                // 2 当前元素变化背景颜色
+                $(this).css('background-color', 'blue');
+                // 3 其余兄弟元素去掉背景颜色
+                $(this).siblings('button').css('background-color', '');
+            })
+        })
+    </script>
+</body>
+
+</html>

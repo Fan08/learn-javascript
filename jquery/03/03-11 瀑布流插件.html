@@ -1,0 +1,113 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-07 13:29:16
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-07 13:36:12
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <style>
+        * {
+            margin: 0;
+        }
+
+        #div1 {
+            margin: auto;
+            position: relative;
+        }
+
+        .box {
+            float: left;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #f7f7f7;
+            box-shadow: 0 0 8px #ccc;
+        }
+
+        .box:hover {
+            box-shadow: 0 0 10px #999;
+        }
+
+        .box img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <div class="box"><img src="img/01.jpg" alt=""></div>
+        <div class="box"><img src="img/02.jpg" alt=""></div>
+        <div class="box"><img src="img/03.jpg" alt=""></div>
+        <div class="box"><img src="img/04.jpg" alt=""></div>
+        <div class="box"><img src="img/05.jpg" alt=""></div>
+        <div class="box"><img src="img/06.jpg" alt=""></div>
+        <div class="box"><img src="img/07.jpg" alt=""></div>
+        <div class="box"><img src="img/01.jpg" alt=""></div>
+        <div class="box"><img src="img/02.jpg" alt=""></div>
+        <div class="box"><img src="img/03.jpg" alt=""></div>
+        <div class="box"><img src="img/04.jpg" alt=""></div>
+        <div class="box"><img src="img/05.jpg" alt=""></div>
+        <div class="box"><img src="img/06.jpg" alt=""></div>
+        <div class="box"><img src="img/07.jpg" alt=""></div>
+        <div class="box"><img src="img/01.jpg" alt=""></div>
+        <div class="box"><img src="img/02.jpg" alt=""></div>
+        <div class="box"><img src="img/03.jpg" alt=""></div>
+        <div class="box"><img src="img/04.jpg" alt=""></div>
+        <div class="box"><img src="img/05.jpg" alt=""></div>
+        <div class="box"><img src="img/06.jpg" alt=""></div>
+        <div class="box"><img src="img/07.jpg" alt=""></div>
+        <div class="box"><img src="img/01.jpg" alt=""></div>
+        <div class="box"><img src="img/02.jpg" alt=""></div>
+        <div class="box"><img src="img/03.jpg" alt=""></div>
+        <div class="box"><img src="img/04.jpg" alt=""></div>
+        <div class="box"><img src="img/05.jpg" alt=""></div>
+        <div class="box"><img src="img/06.jpg" alt=""></div>
+        <div class="box"><img src="img/07.jpg" alt=""></div>
+        <div class="box"><img src="img/01.jpg" alt=""></div>
+        <div class="box"><img src="img/02.jpg" alt=""></div>
+        <div class="box"><img src="img/03.jpg" alt=""></div>
+        <div class="box"><img src="img/04.jpg" alt=""></div>
+        <div class="box"><img src="img/05.jpg" alt=""></div>
+        <div class="box"><img src="img/06.jpg" alt=""></div>
+        <div class="box"><img src="img/07.jpg" alt=""></div>
+    </div>
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery.waterfall.js"></script>
+    <script>
+        $("#div1").waterfall({
+            itemClass: ".box",
+            minColCount: 2,
+            spacingHeight: 5,
+            resizeable: true,
+            ajaxCallback: function (success, end) {
+                var data = {
+                    "data": [
+                        { "src": "03.jpg" }, { "src": "04.jpg" }, { "src": "02.jpg" }, { "src": "05.jpg" }, { "src": "01.jpg" }, { "src": "06.jpg" }
+                    ]
+                };
+                var str = "";
+                var templ = '<div class="box" style="opacity:0;filter:alpha(opacity=0);"><div class="pic"><img src="img/{{src}}" /></div></div>'
+
+                for (var i = 0; i < data.data.length; i++) {
+                    str += templ.replace("{{src}}", data.data[i].src);
+                }
+                $(str).appendTo($("#div1"));
+                success();
+                end();
+            }
+        });
+    </script>
+</body>
+
+</html>

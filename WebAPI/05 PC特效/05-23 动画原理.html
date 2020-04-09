@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-02 13:33:15
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-02 13:39:20
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        const div = document.querySelector('div');
+        const timer = setInterval(function(){
+            if(div.offsetLeft >= 400){
+                // 清除定时器
+                clearInterval(timer);
+            }
+            div.style.left = div.offsetLeft + 1 + 'px';
+        }, 50);
+    </script>
+</body>
+</html>

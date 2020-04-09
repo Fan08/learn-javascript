@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-05 12:36:43
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-05 12:46:20
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        $(function () {
+            console.log($('div').css('width'));
+            // $('div').css('width', '300px');
+            // $('div').css('width', 400);
+            $('div').css({ width: 150, backgroundColor: 'blue' });
+        })
+    </script>
+</body>
+
+</html>

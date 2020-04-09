@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-04 11:50:22
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-04 12:12:26
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <video src='../大黄蜂录屏 2019-08-26 23-42-30@0.mp4' muted></video>
+    <script>
+        // 1 DOM对象
+        const div = document.querySelector('div');
+        // 2 jquery对象，用jquery方式获取的对象就是jquery对象
+        const div_jq = $('div');
+
+        // 1 DOM转jQuery
+        // 1）我们直接获取视频，得到的就是jQuery对象
+        $('video');
+        // 2）已经使用原生js获取DOM
+        const myvideo = document.querySelector('video');
+        // $(myvideo).play(); // jQuery中没有这方法，无法使用
+        // 2 jQuery转DOM
+        // myvideo.play();
+        $('video')[0].play();
+    </script>
+</body>
+
+</html>

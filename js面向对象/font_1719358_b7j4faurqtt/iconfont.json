@@ -1,0 +1,30 @@
+{
+  "id": "1719358",
+  "name": "1",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8777387",
+      "name": "close_filled",
+      "font_class": "icon-test",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "7008885",
+      "name": "activity_fill",
+      "font_class": "activity_fill",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "7008942",
+      "name": "group",
+      "font_class": "group",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    }
+  ]
+}

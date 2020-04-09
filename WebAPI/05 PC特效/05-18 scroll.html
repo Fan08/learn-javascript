@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-02 11:15:37
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-02 11:29:01
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid pink;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 
+        我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 
+        我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 
+        我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 
+        我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 
+        我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 
+    </div>
+    <script>
+        const div = document.querySelector('div');
+        // 包含padding
+        // 包含整个滚动区的高度
+        console.log(div.scrollHeight);
+        div.addEventListener('scroll', function(){
+            console.log('被卷去的头部高度', div.scrollTop);
+        })
+    </script>
+</body>
+</html>

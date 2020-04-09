@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="margin-left: 80px">
+        <h2>5.4 location对象的方法</h2>
+        <p>location.assign() 和href一样，可以跳转页面（重定向），可以实现后退；</p>
+        <p>location.replace()替换当前页面，因为不记录历史，所以不能后退页面；</p>
+        <p>location.reload()重新加载页面，相当于刷新按钮，如参数为true，则为强制刷新；</p>
+        <br/>
+        <br/>
+        <button>点击</button>
+    </div>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            // location.assign('http://www.baidu.com');
+            // location.replace('http://www.baidu.com');
+            location.reload(true);
+        })
+    </script>
+</body>
+</html>
