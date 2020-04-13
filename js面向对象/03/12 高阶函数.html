@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 10:21:51
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 10:37:57
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../jquery/jquery.js"></script>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        function fn(a, b, callback) {
+            console.log(a + b);
+            callback && callback();
+        }
+        fn(1, 2, function () {
+            console.log('高阶函数传参');
+        })
+        $('div').animate({ left: 500 }, function () {
+            $('div').css('backgroundColor', 'skyblue')
+        })
+    </script>
+</body>
+
+</html>

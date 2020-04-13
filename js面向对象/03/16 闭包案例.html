@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 11:50:23
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 12:31:08
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>榴莲</li>
+        <li>臭豆腐</li>
+        <li>鲱鱼</li>
+        <li>猪蹄</li>
+    </ul>
+
+    <script>
+        // 闭包应用 三秒后打印所有 li 元素内容
+        const lis = document.querySelector('.nav').querySelectorAll('li');
+
+        for (let i = 0; i < lis.length; i++) {
+            (function (i) {
+                setTimeout(function () {
+                    // 异步函数在任务队列中执行，无法调用主程序中的变量
+                    console.log(lis[i].innerHTML);
+                }, 3000)
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

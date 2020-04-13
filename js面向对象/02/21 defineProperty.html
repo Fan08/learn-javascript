@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-11 21:05:26
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-11 21:14:42
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            id: 1
+        }
+        Object.defineProperty(obj, 'num', {
+            value: 45,
+        });
+        Object.defineProperty(obj, 'num', {
+            writable: false,
+            enumerable: false,
+        });
+        console.log(obj);
+        console.log(Object.keys(obj));
+
+    </script>
+</body>
+
+</html>

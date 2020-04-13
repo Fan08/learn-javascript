@@ -4,7 +4,7 @@
  * @Author: 唐帆
  * @Date: 2020-04-06 22:18:33
  * @LastEditors: 唐帆
- * @LastEditTime: 2020-04-09 13:46:08
+ * @LastEditTime: 2020-04-10 10:19:05
  -->
 
 #### 1 删除节点
@@ -29,6 +29,8 @@
 - 1 创建（内容、元素节点）
     - document.write 不常用
     - innerHTML
+        - innerHTML也可以用于获取元素节点值
+        - element.innerHTML;
     - createElement
 >
 - 2 增

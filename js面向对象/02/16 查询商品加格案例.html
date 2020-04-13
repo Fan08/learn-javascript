@@ -1,0 +1,133 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-11 11:38:42
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-11 12:25:11
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        table {
+            margin: 20px auto;
+        }
+
+        table th {
+            width: 200px;
+            text-align: center;
+        }
+
+        table td {
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        按照加格查询：
+        <input type="text" class="start">
+        -
+        <input type="text" class="end">
+        <button class="search-price">搜索</button>
+        按商品名称查询：
+        <input type="text" class="product">
+        <button class="search-pro">查询</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        const data = [{
+            id: 1,
+            pname: '1',
+            price: '1',
+        }, {
+            id: 2,
+            pname: '2',
+            price: '2',
+        }, {
+            id: 3,
+            pname: '3',
+            price: '3',
+        }, {
+            id: 4,
+            pname: '4',
+            price: '4',
+        },];
+
+        // 1 获取相应元素
+        const tbody = document.querySelector('tbody');
+        const search_price = document.querySelector('.search-price');
+        const start = document.querySelector('.start');
+        const end = document.querySelector('.end');
+        const product = document.querySelector('.product');
+        const search_pro = document.querySelector('.search-pro');
+        // 2 把数据渲染到页面中
+        const render_function = (need_data) => {
+            tbody.innerHTML = '';
+            need_data.forEach(function (value) {
+                // console.log(value);
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${value.id}</td>
+                            <td>${value.pname}</td>
+                            <td>${value.price}</td>`;
+                tbody.appendChild(tr);
+            });
+        };
+        render_function(data);
+
+        // 3 查询商品加格
+        search_price.addEventListener('click', function () {
+            const new_data = data.filter(function (value) {
+                return value.price >= start.value && value.price <= end.value;
+            });
+            // console.log(new_data);
+
+            // 将筛选完的对象渲染到页面中
+            render_function(new_data);
+        });
+
+        // 4 根据名称查找商品
+        // 如果查询数组中唯一元素，用some方法更合适，因为它找到就退出
+        search_pro.addEventListener('click', function () {
+            const arr = [];
+            data.some(function (value) {
+                if (value.pname === product.value) {
+                    arr.push(value);
+                    return true;
+                }
+            });
+            // 把拿到的数据渲染
+            render_function(arr);
+        })
+
+
+    </script>
+</body>
+
+</html>

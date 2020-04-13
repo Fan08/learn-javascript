@@ -1,0 +1,35 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 20:57:57
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 21:05:45
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1 利用 RegExp 对象来创建
+        const regexp = RegExp(/123/);
+        console.log(regexp);
+
+        // 2 利用字面量创建正则表达式
+        const regexp1 = /123/;
+        console.log(regexp1);
+
+        console.log(regexp1.test(123));
+        console.log(regexp1.test('abd'));
+
+
+    </script>
+</body>
+
+</html>

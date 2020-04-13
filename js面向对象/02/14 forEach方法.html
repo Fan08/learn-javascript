@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-11 11:16:50
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-11 11:20:03
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // forEach 迭代数组
+        const arr = [1, 2, 3];
+        let sum = 0;
+        arr.forEach(function (value, index, arr) {
+            console.log('单个元素' + value);
+            console.log('索引' + index);
+            console.log('数组' + arr);
+            sum += value;
+        })
+        console.log(sum);
+
+    </script>
+</body>
+
+</html>

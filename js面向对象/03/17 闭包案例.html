@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 12:32:02
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 12:54:04
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 打车起步价13（3公里内），之后每多一公里增加 5 元，用户输入公里数就可以计算打车加格
+        // 如果有拥堵情况，总价格多收取 10 元；
+        // 如果使用的不是立即执行函数，会导致 car 的值是一个函数，而不是最终需要的那个对象
+        let car = (function () {
+            const start = 13;
+            let total = 0;
+            return {
+                // 正常总价
+                price: function (n) {
+                    if (n <= 3) {
+                        total = start;
+                    } else {
+                        total = (n - 3) * 5 + start;
+                    }
+                    return total;
+                },
+                // 拥堵情况
+                yd: function (flag) {
+                    return flag ? total + 10 : total;
+                },
+            }
+        })();
+        console.log(car.price(5))
+        console.log(car.yd(true))
+    </script>
+</body>
+
+</html>

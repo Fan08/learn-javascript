@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-11 10:40:59
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-11 11:09:56
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 借用父构造函数继承属性
+        // 1 父构造函数
+        function Father(uname, age) {
+            // this 指向父构造函数的对象实例
+            this.uname = uname;
+            this.age = age;
+        }
+
+        Father.prototype.money = function () {
+            console.log('make money');
+        }
+
+
+        // 2 子构造函数
+        function Son(uname, age, score) {
+            // this 指向子构造函数的对象实例
+            // 调用父构造函数，且将父构造函数中的this改为子构造函数中的this
+            Father.call(this, uname, age);
+            this.score = score;
+        }
+
+        // 下面这样的赋值会造成修改子原型对象时，父原型对象一同修改
+        // Son.prototype = Father.prototype;
+
+        // 新建一个实例对象，此时Son的原型和Father的原型不是同一个
+        // Son变成了 Father 的一个实例对象
+        // Father 的实例对象指向 Father 原型对象
+        Son.prototype = new Father();
+
+        // 如果利用对象的形式修改了原型对象，别忘了利用constructor指回原来的构造函数
+        Son.prototype.constructor = Son;
+
+        Son.prototype.exam = function () {
+            console.log('exam');
+        }
+
+        const son = new Son('test1', 12, 56);
+        console.log(son);
+        console.log(Father.prototype);
+
+    </script>
+</body>
+
+</html>

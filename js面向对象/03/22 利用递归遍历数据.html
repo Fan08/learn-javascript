@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 13:43:54
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 14:05:03
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const data = [{
+            id: 1,
+            name: '1',
+            goods: [{
+                id: 11,
+                gname: '11'
+            }, {
+                id: 12,
+                gname: '12'
+            }],
+        }, {
+            id: 2,
+            name: '2',
+        }]
+
+        // 输入 id 就能获取对应的商品数据
+        // 1 利用 forEach 遍历所有对象
+        //   forEach 全部遍历完了就自动退出
+        function getID(json, id) {
+            let o = {};
+            json.forEach(function (item, index, arr) {
+
+                if (item.id === id) {
+                    o = item;
+                    return item;
+                }
+                if (item.goods && item.goods.length !== 0) {
+                    o = getID(item.goods, id);
+                }
+            });
+            return o;
+        }
+        console.log(getID(data, 12));
+
+
+    </script>
+</body>
+
+</html>

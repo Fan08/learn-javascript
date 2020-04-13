@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 13:16:12
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 13:19:53
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = 1;
+        function fn() {
+            console.log(num);
+            if (num === 6) {
+                return;
+            }
+            num++;
+            fn();
+        }
+        fn();
+    </script>
+</body>
+
+</html>

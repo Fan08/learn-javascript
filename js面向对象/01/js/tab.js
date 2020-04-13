@@ -4,7 +4,7 @@
  * @Author: 唐帆
  * @Date: 2020-04-09 11:36:46
  * @LastEditors: 唐帆
- * @LastEditTime: 2020-04-09 13:59:26
+ * @LastEditTime: 2020-04-10 10:34:38
  */
 
 let that;
@@ -12,6 +12,7 @@ let that;
 class Tab {
     constructor(id) {
         // 获取元素
+        // 这些元素不需要进行更新
         this.main = document.querySelector(id);
         this.add = this.main.querySelector('.tabadd');
 
@@ -22,10 +23,12 @@ class Tab {
     }
 
     // 获取所有li和section
+    // 以下几种元素需要根据操作不断更新
     updateNode() {
         this.lis = this.main.querySelectorAll('li');
         this.sections = this.main.querySelectorAll('section');
         this.removes = this.main.querySelectorAll('.iconfont-right');
+        this.spans = this.main.querySelectorAll('.firstnav li span');
     }
 
     // 初始化操作，让相关元素绑定事件
@@ -37,6 +40,10 @@ class Tab {
             this.lis[i].onclick = this.toggleTab;
 
             this.removes[i].onclick = this.removeTab;
+
+            // 双击编辑内容
+            this.spans[i].ondblclick = this.editTab;
+            this.sections[i].ondblclick = this.editTab;
         }
     }
 
@@ -90,7 +97,29 @@ class Tab {
 
     // 4 修改功能
     editTab() {
+        this.removeEventListener('dblclick', this.editTab);
 
+        // 获取标签栏中的值，赋值给输入框
+        const str = this.innerHTML;
+        window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+        this.innerHTML = '<input type="text"/>';
+        const input = this.children[0];
+        input.value = str;
+        input.select();  // 使文本框文字处于选定状态
+
+        // input框失焦保存
+        input.onblur = function () {
+            this.parentNode.addEventListener('dblclick', this.editTab);
+            this.parentNode.innerHTML = this.value;
+        }
+
+        // 回车保存
+        input.onkeyup = function (e) {
+            if (e.keyCode === 13) {
+                // 手动触发失焦事件
+                this.blur();
+            }
+        }
     }
 
     clearClass() {

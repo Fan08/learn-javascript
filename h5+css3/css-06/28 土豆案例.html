@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 18:37:43
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 18:55:02
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tudou {
+            position: relative;
+            width: 444px;
+            height: 320px;
+            margin: 100px auto;
+        }
+
+        .hidden-layer {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4) url(./arr.png) no-repeat center;
+        }
+
+        .tudou:hover .hidden-layer {
+            display: block;
+        }
+
+        .tudou .big {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tudou .small {
+            position: absolute;
+            top: 50%;
+            margin-top: -17px;
+            left: 50%;
+            margin-left: -17px;
+            width: 34px;
+            height: 34px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tudou">
+        <img src="./tudou.jpg" alt="" class="big">
+        <div class="hidden-layer">
+            <!-- <img src="./arr.png" alt="" class="small"> -->
+        </div>
+    </div>
+</body>
+
+</html>

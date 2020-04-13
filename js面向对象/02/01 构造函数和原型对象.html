@@ -1,0 +1,53 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-10 11:48:40
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-10 13:27:37
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        // Star.prototype.sing = function () {
+        //     console.log("sing");
+        // }
+
+        Star.prototype = {
+            constructor: Star,
+            sing: function () {
+                console.log('sing');
+            },
+            movie: function () {
+                console.log('movie');
+            },
+        }
+        Star.prototype.sex = "男";
+        Object.prototype.sex = "男";
+
+        const test1 = new Star('test1', 12);
+        console.dir(Star);
+        test1.sing();
+
+        console.log(test1.__proto__);
+        console.log(test1.__proto__ === Star.prototype);
+        console.log(test1.__proto__.constructor);
+        console.dir(Star.prototype.constructor);
+
+
+    </script>
+</body>
+
+</html>

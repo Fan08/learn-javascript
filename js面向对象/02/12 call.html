@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-11 10:32:02
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-12 10:04:55
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // call方法
+
+        function fn(x, y) {
+            console.log('test1');
+            console.log(this);
+            console.log(x + y);
+        }
+        const o = {
+            name: 'andy',
+        };
+        // fn();
+        // 1 用 call() 调用函数
+        //   this指向window
+        fn.call();
+        // 2 call() 可以改变函数的 this 指向
+        //   此时 this 指向 o
+        //   同时可以实现传值
+        fn.call(o, 1, 2);
+    </script>
+</body>
+
+</html>

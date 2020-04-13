@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-13 14:08:16
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-13 14:26:19
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: ['1', '2']
+        };
+
+        const o = {};
+
+        // 浅拷贝
+        // for (const i in obj) {
+        //     o[i] = obj[i];
+        // }
+
+        // Object.assign(o, obj);
+
+        // 深拷贝
+        function deepCopy(newobj, oldobj) {
+            for (const k in oldobj) {
+                // 判断是否是复杂数据类型
+                // 1 获取属性值
+                const item = oldobj[k];
+                // 2 判断这个值是否是数组
+                //   数组也是对象，如果放在第二个会被忽略
+                if (item instanceof Array) {
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item);
+                }
+                // 3 判断这个值是否是对象
+                else if (item instanceof Object) {
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item);
+                }
+                // 4 是简单数据类型
+                else {
+                    newobj[k] = item;
+                }
+            }
+        }
+        deepCopy(o, obj);
+        console.log(o);
+
+    </script>
+</body>
+
+</html>

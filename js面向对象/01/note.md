@@ -4,7 +4,7 @@
  * @Author: 唐帆
  * @Date: 2020-04-08 11:08:57
  * @LastEditors: 唐帆
- * @LastEditTime: 2020-04-09 13:55:17
+ * @LastEditTime: 2020-04-10 10:15:45
  -->
 
 ### 1 面向对象编程介绍
@@ -192,7 +192,15 @@
 - 1 该对象有切换功能
 - 2 该对象有添加功能
 - 3 该对象有删除功能
+    - 点击叉号删除当前li和section；
+    - 通过父节点获取index；
+
+    - that.lis[index] && that.lis[index].click();
+        - 前式为真，则执行后式；
 - 4 该对象有修改功能
+    - 双击事件（ondblclick）；
+    - 阻止双击事件的文字选中功能；
+        - window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty()
 >
 - inertAdjacentHTML(position, text);
     - 可以直接把字符串格式元素添加到父元素中
@@ -202,10 +210,3 @@
         - 'beforeend' 插入元素内部的最后一个子节点之后；
         - 'afterend' 元素自身后面；
 >
-
-删除功能
-- 点击叉号删除当前li和section；
-- 通过父节点获取index；
-
-- that.lis[index] && that.lis[index].click();
-    - 前式为真，则执行后式；

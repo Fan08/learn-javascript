@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-11 10:13:59
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-11 10:22:45
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(Array.prototype);
+        Array.prototype.sum = function () {
+            let sum = 0;
+            for (let i = 0; i < this.length; i++) {
+                sum += this[i];
+            }
+            return sum;
+        }
+
+        // 以下这种形式会将所有的原有函数被覆盖
+        // Array.prototype.sum = {
+        //     sum: function () {
+        //         let sum = 0;
+        //         for (let i = 0; i < this.length; i++) {
+        //             sum += this[i];
+        //         }
+        //         return sum;
+        //     }
+        // }
+
+        const arr = [1, 2, 3];
+        // 给Array添加了一个原生对象
+        console.log(arr.sum());
+        console.log(Array.prototype);
+
+        const arr1 = new Array(11, 22, 33);
+        console.log(arr1.sum());
+
+    </script>
+</body>
+
+</html>
