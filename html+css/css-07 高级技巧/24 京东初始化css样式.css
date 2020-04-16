@@ -1,0 +1,70 @@
+/* 所有标签内外边距清零 */
+* {
+    margin: 0;
+    padding: 0
+}
+
+/* em 和 i 不倾斜 */
+em,
+i {
+    font-style: normal
+}
+
+/* li 去除小圆点 */
+li {
+    list-style: none
+}
+
+img {
+    /* border: 0 是照顾低版本浏览器 */
+    border: 0;
+    /* 解决底部空隙问题 */
+    vertical-align: middle
+}
+
+button {
+    /* 经过按钮时鼠标变手 */
+    cursor: pointer
+}
+
+a {
+    color: #666;
+    text-decoration: none
+}
+
+a:hover {
+    color: #c81623
+}
+
+button,
+input {
+    /* 指定字体 */
+    /* "\5B8B\4F53" 是宋体，unicode编码格式 */
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+}
+
+body {
+    /* -webkit-font-smoothing css3的抗锯齿性 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666
+}
+
+.hide,
+.none {
+    display: none
+}
+
+/* 清除浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}

@@ -1,0 +1,61 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-15 09:51:19
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-15 10:39:30
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test"></div>
+    <script>
+        const div = document.querySelector('.test')
+        const add = (a, b) => {
+            console.log(this);
+            return a + b
+        };
+        const a = add(1, 4);
+        console.log(a);
+
+        // div.onclick = function () {
+        //     setInterval(function () {
+        //         this.style.background = `rgb(${parseInt(Math.random() * 255)},
+        //         ${parseInt(Math.random() * 255)}, ${parseInt(Math.random() * 255)})`
+        //     }.bind(this), 1000)
+        // }
+
+        div.onclick = function () {
+            setInterval(() => {
+                this.style.background = `rgb(${parseInt(Math.random() * 255)},
+                ${parseInt(Math.random() * 255)}, ${parseInt(Math.random() * 255)})`
+            }, 1000)
+        }
+
+        function fn(a, b, ...args) {
+            console.log(a);
+            console.log(b);
+            console.log(args);
+        }
+
+        fn(1, 2, 3, 4, 5, 6)
+
+    </script>
+</body>
+
+</html>

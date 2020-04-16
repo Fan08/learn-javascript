@@ -1,0 +1,63 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-14 20:52:36
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-14 21:00:40
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 0;
+            height: 0;
+            border-top: 100px solid springgreen;
+            border-right: 100px solid red;
+            border-bottom: 100px solid blue;
+            border-left: 100px solid yellow;
+        }
+
+        .box2 {
+            margin-top: 100px;
+            width: 0;
+            height: 0;
+            border: 100px solid transparent;
+            border-right: 100px solid red;
+        }
+
+        .box3 {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            background-color: turquoise;
+        }
+
+        .box4 {
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 50%;
+            top: 0;
+            margin-top: -30px;
+            margin-left: -15px;
+            border: 15px solid transparent;
+            border-bottom: 15px solid turquoise;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+</body>
+
+</html>

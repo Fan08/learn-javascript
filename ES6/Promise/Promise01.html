@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-15 11:08:24
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-15 22:46:56
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // resolve 处理完成，没有异常后调用的函数
+        // reject 处理失败，产生异常后调用的函数
+        // 这两个函数实际上是用来传递数据的
+        const p1 = new Promise(function (resolve, reject) {
+            if (true) {
+                resolve("数据请求完成！");
+            } else {
+                reject("数据请求失败！");
+            }
+        });
+
+        console.log(p1);
+
+        p1.then(function (res) {
+            console.log(res);
+        }, function (rej) {
+            console.log(rej);
+        })
+
+        // 抓取数据请求失败的报错
+        p1.catch(function (err) {
+            console.log("catch", err);
+        })
+
+        // finally是无论成功还是失败都会执行
+        // 但是无法获取 resolve 和 reject 的参数
+        p1.finally(function (res) {
+            console.log('finally', res);    // undefined
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
  * @Author: 唐帆
  * @Date: 2020-04-10 10:36:13
  * @LastEditors: 唐帆
- * @LastEditTime: 2020-04-12 09:38:16
+ * @LastEditTime: 2020-04-15 09:31:51
  -->
  ### 1 构造函数和原型
  #### 1.1 概述
@@ -324,6 +324,30 @@
                 writable: false,
             });
         ```
+- 3 Object.create()
+    - 其中的值可以是简单数据类型，也可以是方法；
+    ```
+        const a = {
+            username: 'admin',
+            password: '123456',
+        };
+
+        const b = Object.create(a);
+        console.log(a);
+        console.log(b);
+
+        // 传入第二个参数
+        // 与 defineProperty 类似
+        const c = Object.create(a, {
+            sex: {
+                value: 'man',
+                writable: false,
+                configurable: true,
+                enumerable: true
+            }
+        })
+        console.log(c);
+    ```
 
 ### 其它
 - 使用 function 来创建函数会有一个提升作用；

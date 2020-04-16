@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-15 14:00:15
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-15 22:54:48
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 同时处理多个，只要有一个返回就处理 -->
+    <script>
+        const p1 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve('1000ms')
+            }, 1000)
+        });
+        const p2 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve('2000ms')
+            }, 2000)
+        });
+        // const p2 = Promise.resolve('成功2');
+        // const p3 = Promise.resolve('成功3');
+        const p3 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve('3000ms')
+            }, 3000)
+        });
+        // const p4 = Promise.resolve('成功4');
+        const p4 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve('4000ms')
+            }, 4000)
+        });
+
+        const arr = [p2, p3, p1, p4];
+        const result = Promise.race(arr);
+        result.then(function (res) {
+            // 只打印出来最快的那个
+            // 常见于抢红包的场景
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>

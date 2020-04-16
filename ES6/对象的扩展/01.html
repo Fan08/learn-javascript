@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-15 09:21:28
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-15 09:29:17
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a = {
+            username: 'admin',
+            password: '123456',
+        };
+
+        const b = Object.create(a);
+        console.log(a);
+        console.log(b);
+
+        // 传入第二个参数
+        // 与 defineProperty 类似
+        const c = Object.create(a, {
+            sex: {
+                value: 'man',
+                writable: false,
+                configurable: true,
+                enumerable: true
+            }
+        })
+        console.log(c);
+    </script>
+</body>
+
+</html>

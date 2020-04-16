@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-14 11:23:04
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-14 11:41:12
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: #aaa;
+            font-size: 14px;
+            margin-left: 20px;
+        }
+
+        .right {
+            color: chartreuse;
+        }
+
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="uname"><span>请输入用户名</span>
+    <script>
+        // 表单失去焦点时就进行验证
+        const rg = /^[a-zA-Z0-9]{6,16}$/;
+        const uname = document.querySelector('.uname');
+        const span = document.querySelector('span');
+        uname.addEventListener('blur', function () {
+            if (rg.test(uname.value)) {
+                // console.log(true);
+                span.className = 'right';
+                span.innerHTML = '输入正确';
+            } else {
+                // console.log(false);
+                span.className = 'wrong';
+                span.innerHTML = '输入错误';
+            }
+        });
+
+    </script>
+</body>
+
+</html>

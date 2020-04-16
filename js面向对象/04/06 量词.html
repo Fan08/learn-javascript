@@ -1,0 +1,35 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-14 11:11:41
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-14 11:14:57
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const reg = /^a*$/;
+        console.log(reg.test(''));
+        console.log(reg.test('aa'));
+        console.log(reg.test('aaa'));
+
+        const reg1 = /^a+$/;
+        console.log(reg1.test(''));
+        console.log(reg1.test('aaa'));
+
+        const reg2 = /^a{3}$/;
+        console.log(reg1.test('aaa'));
+
+    </script>
+</body>
+
+</html>

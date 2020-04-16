@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-15 12:36:34
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-15 12:42:50
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 很少使用
+        // 创建成功 promise 对象
+        const p1 = Promise.resolve('这是成功的状态！');
+        // 等价于上面的写法
+        const p2 = new Promise(function (resolve, reject) {
+            resolve("这是成功的状态！")
+        });
+        console.log(p1);
+
+        p1.then(function (res) {
+            console.log(res);
+        })
+
+        // 创建拒绝的 Promise 对象
+        const p3 = Promise.reject('这是失败的状态！');
+        const p4 = new Promise(function (resolve, reject) {
+            reject("这是失败的状态！")
+        });
+
+        console.log(p3);
+        p3.catch(function (rej) {
+            console.log(rej);
+        })
+
+    </script>
+</body>
+
+</html>

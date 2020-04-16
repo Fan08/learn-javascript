@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-16 10:28:24
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-16 10:33:47
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        const fnPromise = function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    const d1 = document.querySelector('div');
+                    d1.style.backgroundColor = 'yellow';
+                    resolve("change color after 2 second")
+                }, 2000)
+            })
+        }
+
+        const p1 = fnPromise();
+        p1.then(function (res) {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>

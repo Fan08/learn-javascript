@@ -1,0 +1,87 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-16 10:49:00
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-16 11:26:47
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        function getAjax(url) {
+            return new Promise(function (resolve, reject) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.onreadystatechange = function () {
+                    if (xhr.status == 200 && xhr.readyState == 4) {
+                        const result = JSON.parse(xhr.response);
+                        resolve(result);
+                    } else if (xhr.readyState == 4 && xhr.status != 200) {
+                        reject(xhr);
+                    }
+                }
+                xhr.send();
+            })
+        }
+
+        async function test() {
+            const http_url = "https://api.apiopen.top/getJoke?page=1&count=2&type=video"
+            const res = await getAjax(http_url);
+            console.log(res);
+        }
+
+        async function getMusic() {
+            const http_url = "https://api.apiopen.top/musicRankings";
+            const res = await getAjax(http_url);
+            console.log(res);
+
+            for (let i = 0; i < res.result.length; i++) {
+                $('body').append(`<h2>${res.result[i].name}</h2>`);
+                let content = res.result[i].content;
+                let name = res.result[i].name;
+
+                for (let x = 0; x < content.length; x++) {
+                    const musicUrl = "https://api.apiopen.top/musicDetails?id=" + content[x].song_id;
+                    // 此处执行的实际上是同步操作，不合适
+                    // 按先后进行渲染，因为必须待一个获取到数据才执行下一个
+                    // const musicDetail = await getAjax(musicUrl);
+                    // $('body').append(`<h4>${name}: 音乐${content[x].song_id}</h4>`)
+                    // console.log(musicDetail);
+
+                    // 使用Promise实现异步
+                    // getAjax(musicUrl).then(function(musicDetail){
+                    //     console.log(musicDetail);
+                    //     // 执行需要的渲染操作
+                    // })
+
+                    // 使用 async await 来实现
+                    // 不按先后进行渲染，因为不待上一个获取到数据，就执行下一个了
+                    // 异步和同步的渲染结果有差异，可以说明这一点
+                    const fn = async function () {
+                        // 获取音乐详情
+                        const musicDetail = await getAjax(musicUrl);
+                        // 执行渲染
+                        console.log(musicDetail);
+                        $('body').append(`<h4>${name}: 音乐${content[x].song_id}</h4>`)
+                    };
+                    fn();
+                }
+            }
+        }
+
+        getMusic();
+        test();
+    </script>
+</body>
+
+</html>

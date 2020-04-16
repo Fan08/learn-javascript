@@ -1,0 +1,88 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-15 11:18:27
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-15 11:42:10
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 原生 ajax 和 promise 的使用
+        const http_url = "https://api.apiopen.top/getJoke?page=1&count=2&type=video"
+        const ajaxP = getAjax(http_url)
+
+        function getAjax(url) {
+            return new Promise(function (resolve, reject) {
+                // ajax 创建
+                //     1 创建xhr
+                const xhr = new XMLHttpRequest();
+                //     2 设置路径
+                xhr.open('GET', url)
+                //     3 监听
+                xhr.onreadystatechange = function () {
+                    if (xhr.status == 200 && xhr.readyState == 4) {
+                        //  5 处理数据
+                        resolve(xhr);
+                    } else if (xhr.status != 200 && xhr.readyState == 4) {
+                        //  6 处理失败结果
+                        reject(xhr);
+                    }
+                }
+
+                //     4 发送
+                xhr.send()
+            })
+        }
+
+        // console.log(ajaxP);
+
+        ajaxP.then(function (res) {
+            const result = JSON.parse(res.response)
+            console.log(result);
+        }).catch(function (err) {
+            console.log(err);
+        })
+
+
+        // 使用已经将 promise 和 ajax 封装好的fetch
+        fetch(http_url).then(function (res) {
+            const result = res.json();
+            result.then(function (result) {
+                console.log(result);
+            })
+        }).catch(function (err) {
+            console.log(err);
+        })
+
+
+        // // ajax 创建
+        // //     1 创建xhr
+        // const xhr = XMLHttpRequest();
+        // //     2 设置路径
+        // const http_url = "https://api.apiopen.top/getJoke?page=1&count=2&type=video"
+        // xhr.open('GET', http_url)
+        // //     3 监听
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.status == 200 && xhr.readyState == 4) {
+        //         //  5 处理数据
+        //     } else if (xhr.status != 200 && xhr.readyState == 4) {
+        //         //  6 处理失败结果
+        //     }
+        // }
+
+        // //     4 发送
+        // xhr.send()
+    </script>
+</body>
+
+</html>

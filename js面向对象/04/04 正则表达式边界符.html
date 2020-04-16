@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-14 10:05:05
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-14 10:43:27
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const rg = /abc/;
+        // 只要包含 abc 就是 true
+        console.log(rg.test('abc'));
+        // 以 abc 开头
+        const rg1 = /^abc/;
+        console.log(rg1.test('aabc'));
+        // 以 abc 开头和结尾，相当于精确匹配 abc
+        const rg2 = /^abc$/;
+        console.log(rg2.test('abc'));
+
+    </script>
+</body>
+
+</html>

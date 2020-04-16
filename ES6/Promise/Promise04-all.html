@@ -1,0 +1,97 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-15 12:53:04
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-15 13:56:24
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script src="./jquery.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .test {
+            width: 0;
+            height: 20px;
+            background-color: springgreen;
+        }
+
+        .progress {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="test"></div> -->
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+            style="width: 0%;">
+            <span class="sr-only">0% Complete</span>
+        </div>
+    </div>
+    <!-- <img src="./imgs/1.jpg" alt=""> -->
+    <!-- <script>
+        let num = 0;
+        for (let i = 1; i <= 3; i++) {
+            let img = new Image();
+            img.src = './imgs/' + i + '.jpg';
+            // console.log('./imgs/' + i + '.jpg');
+
+            // for 循环执行和 onload 是异步的
+            // 循环执行完毕不意味图片加载完成
+            img.onload = function () {
+                num++;
+                // 在异步加载图片时刷新进度条
+                const percent = parseInt(num / 3 * 100);
+                const bar = document.querySelector('.progress-bar');
+                const span = document.querySelector('.sr-only');
+                bar.style.width = percent + '%';
+                span.innerHTML = percent + '% Complete';
+                if (num == 3) {
+                    console.log('加载完毕');
+                    // $('.progress').remove()
+                }
+            }
+        }
+    </script> -->
+
+    <script>
+        let num = 0;
+        const pList = [];
+        for (let i = 1; i <= 3; i++) {
+            let p = new Promise(function (resolve, reject) {
+                let img = new Image();
+                img.src = './imgs/' + i + '.jpg';
+                img.onload = function () {
+                    resolve(img)
+                }
+            })
+
+            // 单张图片加载完后修改进度条
+            p.then(function () {
+                num++;
+                const percent = parseInt(num / 3 * 100);
+                const bar = document.querySelector('.progress-bar');
+                bar.style.width = percent + '%';
+            })
+
+            pList.push(p)
+        };
+
+        // 编辑所有图片都加载完成后的处理
+        const pAll = Promise.all(pList);
+        pAll.then(function (res) {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>

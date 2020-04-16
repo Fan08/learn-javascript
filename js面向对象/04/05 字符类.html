@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-14 10:45:13
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-14 11:08:18
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 只要字符串中包含三个字母中的任意一个，就是true
+        const rg = /[abc]/;
+        console.log(rg.test('andy'));
+        // 只有字符串是 abc 中一个的单个字母字符串才是 true
+        const rg1 = /^[abc]$/;
+        console.log(rg1.test('andy'));
+        console.log(rg1.test('a'));
+        const rg2 = /^[a-zA-Z0-9_-]$/;
+        console.log(rg2.test('-'));
+        const rg3 = /^[^a-zA-Z0-9_-]$/;
+        console.log(rg3.test('a'));
+        console.log(rg3.test('*'));
+
+
+    </script>
+</body>
+
+</html>

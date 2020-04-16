@@ -1,0 +1,81 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-16 10:28:24
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-16 10:47:17
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        const fnPromise = function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    const d1 = document.querySelector('div');
+                    d1.style.backgroundColor = 'yellow';
+                    // 成功执行后传递的数据
+                    resolve("change color after 2 second")
+                }, 1000)
+            })
+        };
+
+        const fnPromise2 = function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    const d1 = document.querySelector('div');
+                    d1.style.backgroundColor = 'red';
+                    // 成功执行后传递的数据
+                    resolve("change color after 4 second")
+                }, 1000)
+            })
+        };
+
+        const fnPromise3 = function () {
+            return new Promise(function (resolve, reject) {
+                reject("失败了");
+            })
+        }
+
+        // 使用 await 来替代原有的 .then
+        // 在 async 内部则也是同步运行，必须先运行 result2，结束后才能运行 result
+        // 因此实际上总的运行时间是 6 秒，而不是 4 秒
+        async function demo() {
+            try {
+                // 等待定时器执行，有结果返回后执行
+                const result2 = await fnPromise2();
+                const result = await fnPromise();
+                const result3 = await fnPromise3();
+                console.log(result2);
+                console.log(result);
+                console.log(result3);
+            } catch (e) {
+                // 使用 try-catch 能够捕获 fnPromise3 中的异步发送的错误信息
+                console.log(e);
+            }
+        }
+
+        demo();
+        console.log(1234);
+
+    </script>
+</body>
+
+</html>
