@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-20 17:09:05
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-21 11:01:29
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id='form'>
+        <input type="text" name="username" autocomplete="off">
+        <input type="password" name="password" autocomplete="off">
+        <!-- <input type="file" name="file"> -->
+        <input type="button" id="btn" value="提交">
+    </form>
+
+    <script>
+        const btn = document.querySelector('#btn');
+        const form = document.querySelector('#form');
+
+        btn.onclick = function () {
+            // 将普通表单转为 formdata 对象
+            const formdata = new FormData(form);
+
+            /* 
+                formData.get('key'); 获取表单对象属性的值
+                formData.set('key', 'value'); 设置表单对象属性的值
+            */
+
+            console.log(formdata.get('username'));
+            formdata.set('username', 'test');
+            formdata.set('testname', 'test');
+            formdata.delete('password');
+            formdata.append('testname2', 'test2');
+            formdata.append('testname2', 'test3');
+
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('post', 'http://localhost:3000/formData');
+
+            xhr.send(formdata);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

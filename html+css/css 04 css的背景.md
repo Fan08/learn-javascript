@@ -4,7 +4,7 @@
  * @Author: 唐帆
  * @Date: 2020-04-05 14:24:55
  * @LastEditors: 唐帆
- * @LastEditTime: 2020-04-05 16:28:09
+ * @LastEditTime: 2020-04-18 15:15:47
  -->
 
 - 通过CSS背景属性，可以给页面元素添加背景样式；
@@ -77,3 +77,15 @@
     - a：透明度
     - background: rgba(0, 0, 0, .5);
         - 小数点前的0可以不写；
+
+#### 3.8 背景图大小
+- background-size 
+    ```
+    div {
+        width: 200px;
+        height: 100px;
+        background: url(../1.jpg) no-repeat;
+        background-size: 100% 100%;
+        transition: width 1s ease;
+    }
+    ```

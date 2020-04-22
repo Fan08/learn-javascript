@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 13:19:03
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 13:31:25
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @keyframes move {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(1000px, 0);
+            }
+        } */
+
+        /* 1 可以做多个状态的变化 keyform 关键帧 */
+        /* 2 里面百分比要是整数 */
+        /* 3 、百分比是时间的划分 */
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(1000px, 0);
+            }
+
+            50% {
+                transform: translate(1000px, 500px);
+            }
+
+            75% {
+                transform: translate(0, 500px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+
+            animation-name: move;
+            animation-duration: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-17 18:34:08
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-17 18:48:19
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[name="username"] {
+            outline: none;
+            border: 3px solid skyblue;
+        }
+
+        div[class^="icon"] {
+            color: blue;
+        }
+
+        div[class$="-a"] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1 利用属性选择器就可以不用借助于类或者 id 选择器 -->
+    <input type="text" name="username" id="" autocomplete="off">
+    <input type="text" name="" id="">
+
+    <div class="icon1">小图标1</div>
+    <div class="icon2">小图标2</div>
+    <div class="icon3">小图标3</div>
+    <div class="icon4">小图标4</div>
+
+    <div class="icon1-a">小图标1</div>
+    <div class="icon2-a">小图标2</div>
+    <div class="icon3-a">小图标3</div>
+</body>
+
+</html>

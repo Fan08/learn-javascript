@@ -1,0 +1,66 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-20 14:43:36
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-20 14:57:47
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 800;
+            margin: 100px auto;
+            transition: all 1s;
+            /* 让背面盒子保留立体空间，给父级添加 */
+            transform-style: preserve-3d;
+        }
+
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .front {
+            background-color: skyblue;
+            z-index: 1;
+        }
+
+        .back {
+            background-color: springgreen;
+            /* 将两个盒子形成背靠背的效果 */
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="front">1</div>
+        <div class="back">2</div>
+    </div>
+</body>
+
+</html>

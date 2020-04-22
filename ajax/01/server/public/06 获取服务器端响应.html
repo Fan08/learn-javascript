@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 15:50:05
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 16:02:35
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://localhost:3000/readystate');
+        xhr.onreadystatechange = function () {
+            // readyState 为 4 代表获取值完毕
+            if (xhr.readyState === 4) {
+                console.log(xhr.responseText);
+            }
+        }
+        xhr.send()
+    </script>
+</body>
+
+</html>

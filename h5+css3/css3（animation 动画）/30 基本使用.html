@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 12:00:17
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 12:12:24
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1 定义动画 */
+        @keyframes move {
+
+            /* 开始状态 */
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(100px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: greenyellow;
+
+            /* 2 调用动画 */
+            animation-name: move;
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

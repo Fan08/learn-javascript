@@ -1,0 +1,30 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-22 09:58:09
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-22 10:05:12
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'>发送</button>
+    <script>
+        function fna(data) {
+            console.log('客户端函数调用');
+            console.log(data);
+        }
+    </script>
+    <!-- 1 将非同源服务器端的请求地址写在 script 标签的 src 中 -->
+    <script src="http://localhost:3001/better?callback=fna"></script>
+</body>
+
+</html>

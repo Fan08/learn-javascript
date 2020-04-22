@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-22 13:16:40
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-22 14:11:43
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>serialize方法说明</title>
+</head>
+
+<body>
+	<form id="form">
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<input type="submit" value="提交">
+	</form>
+	<script src="/js/jquery.min.js"></script>
+	<script>
+		$('#form').on('submit', function () {
+			// const params = $('#form').serialize();
+			// console.log(params);
+			const result = serializeObject($(this));
+			// reutrn
+			return false;
+		});
+
+		// 将表单中用户输入的内容转换为对象类型
+		function serializeObject(obj) {
+			const result = {};
+			// serializeArray 将对象转为数组
+			// [{name: 'username', value: '用户输入内容'}]
+			const params = obj.serializeArray();
+			$.each(params, function (index, value) {
+				result[value.name] = value.value;
+			});
+			return result;
+		}
+	</script>
+</body>
+
+</html>

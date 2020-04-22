@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-17 12:46:02
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-17 12:48:37
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* aIterator() {
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 5;
+            yield 8;
+        }
+
+        function run(fnIter, fn) {
+            let iterator = fnIter();
+            while (true) {
+                let { value, done } = iterator.next();
+                if (done) {
+                    break;
+                } else {
+                    fn(value);
+                }
+            }
+        }
+
+        run(aIterator, function (value) {
+            console.log(value + 10);
+        })
+    </script>
+</body>
+
+</html>

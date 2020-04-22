@@ -1,0 +1,93 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-21 11:28:05
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-21 12:59:09
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .container {
+            padding-top: 60px;
+        }
+
+        .padding {
+            padding: 5px 0 20px 0;
+        }
+
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label>请选择文件</label>
+            <input type="file" name="file" id="file">
+
+            <div class="padding" id="box"></div>
+
+            <br>
+            <div class="progress">
+                <div class="progress-bar" style="width: 0%;">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const file = document.querySelector('#file');
+        const bar = document.querySelector('.progress-bar');
+        const box = document.querySelector('#box');
+
+        // 添加 oonchange 事件
+        file.addEventListener('change', function () {
+            const formData = new FormData();
+            // 将用户选择的文件追加到表单中
+            formData.append('attrName', this.files[0]);
+
+            // 实现在上传文件的同时，传递其他数据
+            formData.append('test', 'test')
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('post', 'http://localhost:3000/upload');
+
+            // 在文件上传过程中持续触发
+            xhr.upload.onprogress = function (e) {
+                const result = (e.loaded / e.total) * 100 + '%';
+                // 设置进度条宽度
+                bar.style.width = result;
+                // 设置进度条内文字
+                bar.innerHTML = result;
+            }
+
+            xhr.send(formData);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // console.log(xhr.responseText);
+                    const result = JSON.parse(xhr.responseText);
+                    // 动态创建图片标签
+                    const img = document.createElement('img');
+                    img.src = result.path;
+                    console.log(result.path);
+
+                    // 当图片加载完成后，将图片显示
+                    img.onload = function () {
+                        box.appendChild(img);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

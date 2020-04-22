@@ -1,0 +1,86 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-20 16:05:51
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-22 12:27:28
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>提交</button>
+    <script>
+        function Ajax(request) {
+
+            return new Promise(function (res, rej) {
+                let xhr = new XMLHttpRequest();
+                xhr.open(request.method, request.url);
+                let data = request.data;
+
+                // 进行状态监听
+                xhr.onload = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        res(xhr);
+                    } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                        rej(xhr);
+                    }
+                }
+
+                if (request.method === 'POST') {
+                    if (request.header) {
+                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    } else {
+                        xhr.setRequestHeader('Content-Type', 'application/json');
+                        data = JSON.stringify(request.data);
+                    }
+
+                    xhr.send(data);
+
+                } else if (request.method === 'GET') {
+                    xhr.send();
+                }
+
+
+            })
+        }
+
+        const request_form = {
+            method: 'GET',
+            url: 'https://api.apiopen.top/getJoke?page=1&count=2&type=video',
+        }
+
+        // const request_form = {
+        //     method: 'POST',
+        //     url: 'http://localhost:3000/json',
+        //     data: {
+        //         name: 'zhangsan',
+        //         age: 30
+        //     }
+        // }
+
+        const btn = document.querySelector('button');
+
+        function test(request_form) {
+            const first_request = Ajax(request_form);
+            first_request.then(function (res) {
+                const data = JSON.parse(res.response);
+                console.log(data);
+            }).catch(function (rej) {
+                console.log(rej);
+            })
+        }
+
+        btn.addEventListener('click', test.bind(this, request_form))
+
+    </script>
+</body>
+
+</html>

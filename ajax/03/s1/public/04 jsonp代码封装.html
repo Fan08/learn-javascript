@@ -1,0 +1,78 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-22 10:11:59
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-22 10:43:26
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'>发送</button>
+    <button id='btn1'>发送</button>
+    <script>
+        const btn = document.querySelector('#btn');
+        const btn1 = document.querySelector('#btn1');
+        btn.onclick = function () {
+            jsonp({
+                url: 'http://localhost:3001/better',
+                success: function (data) {
+                    console.log(data);
+                    console.log('被封装的函数');
+                }
+            })
+        }
+
+        btn1.onclick = function () {
+            jsonp({
+                url: 'http://localhost:3001/better',
+                data: {
+                    name: 'test1',
+                    age: 12
+                },
+                success: function (data) {
+                    console.log(data);
+                    console.log('被封装的函数1');
+                }
+            })
+        }
+
+        function jsonp(data) {
+            // 动态创建 script 标签
+            var script = document.createElement('script');
+
+            // 参数字符串化
+            let params = '';
+            for (let i in data.data) {
+                params += '&' + i + '=' + data.data[i];
+            }
+
+            // success 存储的函数不是全局函数，没办法调用
+            // 给 window 增加一个 fn2 属性，从而在没有方法的时候调用该属性
+            // 不需要再在代码中直接声明函数了
+            var fnName = 'myJsonp' + Math.random().toString().replace('.', '')
+            window[fnName] = data.success
+
+            // 为 script 标签创建 src 属性
+            // 将属性名加到 url 中，不需要每次都取名
+            // 但是如果每次名字都一样，会造成后一个函数覆盖上一个函数
+            script.src = data.url + `?callback=${fnName}${params}`;
+
+            document.body.appendChild(script);
+            // 在加载完成后从页面中删除节点
+            script.onload = function () {
+                document.body.removeChild(script);
+            }
+        }
+    </script>
+</body>
+
+</html>

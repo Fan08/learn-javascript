@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-18 09:19:16
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-18 09:44:53
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        const div = document.querySelector('div');
+        div.addEventListener('touchstart', function (e) {
+            console.log('touchstart');
+            // 获取正在触摸屏幕的第一个手指的信息
+            console.log(e.targetTouches[0]);
+
+        });
+        div.addEventListener('touchmove', function () {
+            console.log('touchmove');
+        });
+        div.addEventListener('touchend', function (e) {
+            console.log('touchend', e.changedTouches);
+        })
+    </script>
+</body>
+
+</html>

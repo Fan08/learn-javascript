@@ -1,0 +1,110 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-18 11:26:25
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-18 11:44:51
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const p1 = new Promise(function (resolve, reject) {
+        //     setTimeout(function () {
+        //         if (true) {
+        //             resolve('成功')
+        //         } else {
+        //             reject('失败')
+        //         }
+        //     }, 1000)
+        // });
+
+        // p1.then(function (res) {
+        //     console.log(res);
+        // });
+        // p1.catch(function (rej) {
+        //     console.log(rej);
+        // })
+
+        class TfPromise {
+            constructor(fn) {
+                // 传入的是一个函数对象
+
+                // 将成功函数进行存放
+                this.successList = [];
+                // 将失败函数进行存放
+                this.failList = [];
+
+                // 状态
+                this.state = 'pending';
+
+                this.resolveFn = this.resolveFn.bind(this);
+                this.rejectFn = this.rejectFn.bind(this);
+
+                // 异步操作的函数内容
+                fn(this.resolveFn, this.rejectFn);
+            }
+
+            then(successFn, failFn) {
+                if (typeof successFn == 'function') {
+                    this.successList.push(successFn);
+                }
+                if (typeof failFn == 'function') {
+                    this.failList.push(failFn);
+                }
+            }
+
+            catch(failFn) {
+                if (typeof failFn == 'function') {
+                    this.failList.push(failFn);
+                }
+            }
+
+            resolveFn(res) {
+                this.state = 'fullfilled';
+                this.successList.forEach(function (item, index) {
+                    //  将成功事件循环调用
+                    item(res)
+                })
+            }
+
+            rejectFn(res) {
+                this.state = 'reject';
+                this.failList.forEach(function (item, index) {
+                    //  将失败事件循环调用
+                    item(res)
+                })
+
+            }
+        }
+
+        const p1 = new TfPromise(function (resolve, reject) {
+            setTimeout(function () {
+                if (false) {
+                    resolve('成功')
+                } else {
+                    reject('失败')
+                }
+            }, 1000)
+        });
+
+        p1.then(function (res) {
+            console.log('success');
+            console.log(res);
+        });
+        p1.catch(function (rej) {
+            console.log('fail');
+            console.log(rej);
+        })
+    </script>
+</body>
+
+</html>

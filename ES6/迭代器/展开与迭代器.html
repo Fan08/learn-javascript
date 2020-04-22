@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-17 12:01:22
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-17 12:50:51
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a = [1, 2, 3];
+        const b = [4, 5, 6];
+        const c = [...a, ...b]
+
+        function* abc() {
+            yield 1;
+            yield 5;
+            yield 10;
+        }
+
+        const iterator = abc();
+        // 一次性将迭代器中的内容全部生成并放入数组
+        const e = [...iterator];
+        console.log(e);
+
+        const iterator2 = abc();
+
+
+    </script>
+</body>
+
+</html>

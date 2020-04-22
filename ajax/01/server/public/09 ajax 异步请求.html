@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-20 15:56:22
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-20 16:00:07
+ -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:3000/first")
+        xhr.send();
+        xhr.onload = function () {
+            console.log('请求完成');
+            console.log(xhr.responseText);
+        }
+
+        console.log(1);
+
+    </script>
+</body>
+
+</html>

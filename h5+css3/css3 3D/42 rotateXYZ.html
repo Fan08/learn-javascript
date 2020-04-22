@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-20 14:10:50
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-20 14:25:55
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 透视写在父元素上 */
+        body {
+            perspective: 500px;
+        }
+
+        img {
+            display: block;
+            width: 300px;
+            margin: 100px auto;
+            transition: all 1s;
+        }
+
+        img:hover {
+            /* transform: rotateX(360deg) */
+            /* transform: rotateY(180deg); */
+            /* transform: rotateZ(360deg); */
+            transform: rotate3d(1, 1, 1, 180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../1.jpg" alt="#">
+</body>
+
+</html>

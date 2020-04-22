@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-18 10:00:38
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-18 10:14:01
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        const div = document.querySelector('div');
+        let startX = 0;
+        let startY = 0;
+        let originalX = 0;
+        let originalY = 0;
+
+        div.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].pageX;
+            startY = e.touches[0].pageY;
+            originalX = this.offsetLeft;
+            originalY = this.offsetTop;
+        })
+
+        div.addEventListener('touchmove', function (e) {
+            let currentX = e.touches[0].pageX;
+            let currentY = e.touches[0].pageY;
+            let lengthX = currentX - startX;
+            let lengthY = currentY - startY;
+            this.style.left = originalX + lengthX + 'px';
+            this.style.top = originalY + lengthY + 'px';
+        })
+    </script>
+</body>
+
+</html>

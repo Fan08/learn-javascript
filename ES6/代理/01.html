@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-18 10:28:16
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-18 10:59:40
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const user = {
+            name: '小明',
+            age: 16
+        };
+
+        // 设置代理对象
+        const pUser = new Proxy(user, {
+            get(target, attr) {
+                console.log(target);    // user
+                console.log(attr);      // age
+                return target[attr];
+            },
+
+            set(target, arr, value) {
+                if (value >= 0 && value < 200) {
+                    target[arr] = value;
+                } else {
+                    console.log("超出范围");
+                }
+            }
+        });
+
+        // pUser.attr
+        pUser.age = 23;
+        const age = pUser.age;
+        // age = pUser.age
+
+    </script>
+</body>
+
+</html>

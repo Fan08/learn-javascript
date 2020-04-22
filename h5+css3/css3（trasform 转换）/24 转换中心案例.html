@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 10:24:33
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 11:02:14
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            display: block;
+            margin: 100px auto;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            overflow: hidden;
+        }
+
+        .father::after {
+            content: '人';
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: springgreen;
+            transform: rotate(180deg);
+
+            transform-origin: left bottom;
+            transition: all 0.5s;
+        }
+
+        .father:hover::after {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father"></div>
+</body>
+
+</html>

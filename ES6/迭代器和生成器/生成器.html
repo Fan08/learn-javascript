@@ -1,0 +1,77 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-17 10:41:01
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-17 11:06:23
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数前加星号（*）和yield
+        function* easy() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+        // 没有运行
+        let eastAterator = easy();
+        console.log(eastAterator);
+
+        // 遇到 yield 就中断执行
+        eastAterator.next();    // 1
+        eastAterator.next();    // 2
+        eastAterator.next();    // 3
+
+        for (let i of eastAterator) {
+            console.log(i);
+        }
+
+        function* difficult(count = 10) {
+            let num = 0;
+            let prev1 = 0;
+            let prev2 = 0;
+            if (num == 0) {
+                prev1 = 1;
+                num++;
+                // 将原来的 return 代替为 yield
+                yield 1;
+            }
+
+            while (true) {
+                num++;
+                let result = prev1 + prev2;
+                prev2 = prev1;
+                prev1 = result
+
+                yield result;
+
+                if (num === count) {
+                    break;
+                }
+            }
+        }
+
+        // 并没有真正开始运行迭代器
+        const diffIterator = difficult(5);
+        console.log(diffIterator);
+
+        // 在循环内开始运行迭代器
+        // 每次调用 next 时，都是从
+        for (let i of diffIterator) {
+            console.log(i);
+        }
+    </script>
+</body>
+
+</html>

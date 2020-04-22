@@ -1,0 +1,71 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-17 11:29:24
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-17 11:48:15
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a = ["456", 2, 3, 4, 5, 2, 3];
+        const A = a.entries();
+
+        for (let [key, value] of A) {
+            console.log(key);
+            console.log(value);
+        }
+
+        for (let i of a) {
+            console.log(i);
+        }
+
+        const aa = new Set(a);
+        console.log(aa);
+
+        const string = "41516";
+        for (let i of string) {
+            console.log(i);
+        }
+
+        const user = new Map();
+        user.set("name", "456");
+        user.set("age", "18");
+        user.set("sex", "1");
+        console.log(user);
+        // [key, vlaue] 是对迭代结果进行解构
+        for (let [key, vlaue] of user) {
+            console.log(key);
+            console.log(vlaue);
+        }
+
+        const student = {
+            'name': '12',
+            'age': '12',
+            'sex': '12',
+            // 创建属性方法
+            *[Symbol.iterator]() {
+                for (let key in this) {
+                    yield [key, this[key]]
+                }
+            }
+        }
+
+        for (let [key, value] of student) {
+            console.log(key);
+            console.log(value);
+        }
+
+    </script>
+</body>
+
+</html>

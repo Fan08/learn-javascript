@@ -1,0 +1,56 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-18 10:45:00
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-18 11:02:50
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let DOM = new Proxy({}, {
+            get(target, attr) {
+                console.log(target);    // {}
+                console.log(attr);      // 在本例中是div、ul、li、img
+                const DOMObject = document.createElement(attr)
+                return function (attrs, ...children) {
+                    for (key in attrs) {
+                        DOMObject.setAttribute(key, attrs[key])
+                    }
+                    for (let i = 0; i < children.length; i++) {
+                        if (typeof children[i] === 'string') {
+                            children[i] = document.createTextNode(children[i])
+                        }
+                        DOMObject.appendChild(children[i])
+                    }
+                    return DOMObject;
+                }
+            },
+        })
+
+        // 实际上执行的是代理中的 get 方法
+        let d1 = DOM.div({ id: 'd1', 'class': 'redbg' }, 'hellow', 'world');
+        document.body.appendChild(d1);
+
+        let ul = DOM.ul(
+            { id: 'd1', 'class': 'redbg' },
+            DOM.li({ 'class': 'redbg-li' }, '1'),
+            DOM.li({ 'class': 'redbg-li' }, '2'),
+        );
+        document.body.appendChild(ul);
+
+        let img = DOM.img({ src: './1.jpg' });
+        document.body.appendChild(img);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 21:01:33
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 21:29:06
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .map {
+            position: relative;
+            width: 747px;
+            height: 616px;
+            background-color: #333;
+            margin: 100px auto;
+        }
+
+        .city {
+            position: absolute;
+            top: 227px;
+            right: 193px;
+        }
+
+        .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: #09F;
+            border-radius: 50%;
+        }
+
+        .city div[class^='pulse'] {
+            /* 波纹居中 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px #009dfd;
+
+            border-radius: 50%;
+
+        }
+
+
+
+        @keyframes pulse {
+            0% {}
+
+            70% {
+                /* scale 会导致阴影一同放大 */
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+
+        .pulse1 {
+            animation: pulse 1.2s linear infinite;
+        }
+
+        .pulse2 {
+            animation: pulse 0.5s 0.5s linear infinite;
+        }
+
+        .pulse3 {
+            animation: pulse 0.5s 1s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

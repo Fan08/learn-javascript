@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 16:05:16
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 16:20:01
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">ajax请求</button>
+
+    <script>
+        const btn = document.querySelector('#btn');
+        btn.onclick = ajaxFn.bind(this, 'http://localhost:3000/error')
+
+        function ajaxFn(url) {
+            return new Promise(function (res, rej) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.send();
+                xhr.onload = function () {
+                    if (xhr.status !== 200 && xhr.readyState === 4) {
+                        console.log('返回错误');
+                    } else if (xhr.status === 200 && xhr.readyState === 4) {
+                        console.log('获取成功');
+                    }
+                };
+
+                xhr.onerror = function () {
+                    alert('网络中断')
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

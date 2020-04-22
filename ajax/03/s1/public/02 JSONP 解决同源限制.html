@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-21 14:09:30
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-21 14:26:32
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'>发送</button>
+    <script>
+        function fn2(data) {
+            console.log('客户端函数调用');
+            console.log(data);
+        }
+    </script>
+    <!-- 1 将非同源服务器端的请求地址写在 script 标签的 src 中 -->
+    <!-- <script src="http://localhost:3001/test"></script> -->
+    <script>
+        const btn = document.querySelector('#btn');
+        btn.onclick = function () {
+            // 创建 script 标签
+            const script = document.createElement('script');
+            // 设置 src 属性
+            script.src = "http://localhost:3001/better?callback=fn2"
+            // 将 script 标签进行追加
+            document.body.appendChild(script);
+
+            // 为 script 标签添加 onload 事件
+            script.onload = function () {
+                // 将 body 中的标签删除
+                document.body.removeChild(script)
+            }
+        }
+    </script>
+</body>
+
+</html>

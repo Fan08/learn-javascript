@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 14:29:48
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 14:42:07
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:3000/responseData');
+        xhr.send();
+        xhr.onload = function () {
+            let data = JSON.parse(xhr.responseText);
+            let node = document.createElement("h4")
+            node.innerHTML = data.name;
+            document.body.appendChild(node);
+            console.log(data);
+        }
+    </script>
+</body>
+
+</html>

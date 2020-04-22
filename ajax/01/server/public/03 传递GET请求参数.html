@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-19 14:43:57
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-19 14:57:27
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <input type="text" id="username">
+    </p>
+    <p>
+        <input type="text" id="age">
+    </p>
+    <p>
+        <input type="button" value="提交" id="btn">
+    </p>
+
+    <script>
+        const btn = document.querySelector('#btn');
+        let username = document.querySelector('#username');
+        username.autocomplete = 'off';
+        const age = document.querySelector('#age');
+        btn.onclick = function () {
+            // 创建 ajax 对象
+            const xhr = new XMLHttpRequest();
+            let url = `http://localhost:3000/get?username=${username.value}&age=${age.value}`
+            // 配置 ajax 对象
+            xhr.open('GET', url);
+
+            xhr.send();
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+
+            }
+        }
+    </script>
+</body>
+
+</html>

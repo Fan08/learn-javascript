@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 唐帆
+ * @Date: 2020-04-18 13:35:15
+ * @LastEditors: 唐帆
+ * @LastEditTime: 2020-04-18 13:41:29
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        div::before {
+            display: inline-block;
+            width: 200px;
+            background-color: blue;
+            /* content是必须要写的，元素内容 */
+            content: 'before 伪元素选择器';
+        }
+
+        div::after {
+            /* content是必须要写的，元素内容 */
+            content: 'after 伪元素选择器';
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        -
+    </div>
+</body>
+
+</html>
